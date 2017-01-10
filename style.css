@@ -1,0 +1,176 @@
+/*
+Theme Name: Materialpool
+Theme URI: https://material.rpi-virtuell.de
+Template: twentyseventeen
+Author: the WordPress team
+Author URI: https://staude.net
+Description:
+Version: 1.0.1483523464
+
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Cairo:300,400,700|Open+Sans:400,700');
+
+body {
+    font-family: 'Cairo','Open Sans',  sans-serif;
+}
+
+.facet-treffer {
+    margin-top: 20px;
+}
+.facet-treffer-mediatyps {
+    font-size: 8px;
+    float: left;
+    padding-right: 5px;
+    padding-top: 5px;
+    width: 32px;
+}
+
+.facet-treffer-mediatyps ul {
+    list-style: none;
+}
+
+.startseite-block-header {
+    font-family: 'Cairo','Open Sans',  sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    min-height: 5em;
+    color: #0D5282;
+}
+
+.startseite-block-header p {
+    margin: 0 0 0 0;
+}
+
+.startseite-block-content {
+    font-family: 'Cairo','Open Sans',  sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+}
+
+.blog:not(.has-sidebar) #primary article, .archive:not(.page-one-column):not(.has-sidebar) #primary article, .search:not(.has-sidebar) #primary article, .error404:not(.has-sidebar) #primary .page-content, .error404.has-sidebar #primary .page-content, body.page-two-column:not(.archive) #primary .entry-content, body.page-two-column #comments {
+    width: 98%;
+}
+
+.facetwp-facet {
+    font-family: 'Cairo','Open Sans',  sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+}
+.facet-title {
+    font-family: 'Cairo','Open Sans',  sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0D5282;
+}
+
+.facet-treffer-content {
+    float: left;
+    width: 580px;
+}
+
+.facet-treffer-content h2 {
+    font-family: 'Cairo','Open Sans',  sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: #0D5282;
+}
+.facet-treffer-content p {
+    font-family: 'Cairo','Open Sans',  sans-serif;
+    margin: 0;
+}
+.facet-treffer-content h2 a {
+        color: #0D5282;
+        text-decoration: none;
+        box-shadow: none;
+}
+
+.facet-treffer-content h2 a:hover {
+    color: #0D5282;
+    box-shadow: none;
+}
+
+.facet-treffer-content .schlagworte {
+    color: #0D5282;
+}
+
+.facet-tags {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.facet-tag {
+    float: left;
+    line-height: 2.2em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+    margin-bottom: 0.3em;
+    margin-right: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #0D5282;
+    border-top-left-radius: 0.3em 0.3em;
+    border-bottom-right-radius: 0.3em 0.3em;
+    border-top-right-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+    -moz-border-top-left-radius: 0.3em 0.3em;
+    -moz-border-bottom-right-radius: 0.3em 0.3em;
+    -moz-border-top-right-radius: 0.3em;
+    -moz-border-bottom-left-radius: 0.3em;
+    -webkit-border-top-left-radius: 0.3em 0.3em;
+    -webkit-border-bottom-right-radius: 0.3em 0.3em;
+    -webkit-border-top-right-radius: 0.3em;
+    -webkit-border-bottom-left-radius: 0.3em;
+}
+
+.icon-rot {
+    color: #ff0000;
+}
+
+.icon-weiss {
+    color: #ffffff;
+}
+.icon-blau {
+    color: #0D5282;
+}
+
+.materialpool-template-material-picture-facet {
+    max-width: 200px;
+}
+
+
+.material-detail-left {
+    width: 20%;
+}
+
+.material-detail-content {
+
+}
+
+.material-detail-header {
+    float: left;
+    width: 80%;
+
+}
+
+.material-detail-main {
+    float: left;
+}
+
+.material-detail-middle {
+    float: left;
+    width: 80%;
+    min-width: 78%;
+
+}
+
+.material-detail-right {
+    float: left;
+    width: 20%;
+    min-width: 18%;
+
+}
+

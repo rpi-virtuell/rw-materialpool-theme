@@ -1,0 +1,74 @@
+<?php
+/**
+ * The Template for displaying all single material
+ *
+ * This template can be overridden by copying it to yourtheme/materialpool/single-material.php.
+ *
+ * @since      0.0.1
+ * @package    Materialpool
+ * @author     Frank Staude <frank@staude.net>
+ * @version    0.0.1
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+
+get_header( 'materialpool' ); ?>
+<section  class="content-area">
+    <div id="content" class="site-content" role="main">
+
+        <div class="material-detail-left">
+            <?php echo  Materialpool_Material::cover_facet_html(); ?>
+        </div>
+        <div class="material-detail-content">
+            <div class="facet-treffer-mediatyps">
+                <ul>
+                    <?php $type = Materialpool_Material::get_mediatyps_root();
+                    foreach ( $type as $val ) {
+                        ?>
+                        <li>
+                    <span title="<?php echo $val[ 'name' ]; ?>" class="fa-stack fa-2x">
+                        <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
+                        <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
+                    </span>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="material-detail-header facet-treffer-content">
+                <h2><?php the_title(); ?></h2>
+                <strong>URL</strong> <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url(); ?></a><br>
+                <strong>Kurzbeschreibung</strong><br>
+
+                <?php Materialpool_Material::shortdescription(); ?><br>
+
+                <h2>Beschreibung</h2>
+
+                <div class="material-detail-main">
+                    <div class="material-detail-middle">
+                        <?php Materialpool_Material::description(); ?>
+                    </div>
+                    <div class="material-detail-right">
+                        <strong>Verfügbarkeit</strong><br>
+                        <?php Materialpool_Material::availability(); ?>
+                        <br>
+                        <strong>Organisationen dieses Materials</strong> <br>
+                        <?php Materialpool_Material::organisation_html(); ?>
+                        <br>
+                        <strong>Autoren dieses Materials</strong><br>
+                        <?php Materialpool_Material::autor_html(); ?>
+                        <br>
+
+                        <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<?php get_footer( 'materialpool' ); ?>
