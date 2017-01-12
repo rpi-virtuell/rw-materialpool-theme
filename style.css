@@ -73,7 +73,7 @@ body {
 
 .facet-treffer-content h2 {
     font-family: 'Cairo','Open Sans',  sans-serif;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: 700;
     margin: 0;
     color: #0D5282;
@@ -102,6 +102,11 @@ body {
     margin-bottom: 10px;
 }
 
+.facet-rating {
+    float: right;
+}
+
+
 .facet-tag {
     float: left;
     line-height: 2.2em;
@@ -126,6 +131,36 @@ body {
     -webkit-border-bottom-left-radius: 0.3em;
 }
 
+.facet-tag a {
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.facet-tag a:hover {
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.schlagworte a {
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.schlagworte a:hover {
+    text-decoration: none;
+    box-shadow: none;
+}
+
+
+.search-head {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+search-description {
+
+}
+
 .icon-rot {
     color: #ff0000;
 }
@@ -143,17 +178,22 @@ body {
 
 
 .material-detail-left {
-    width: 20%;
+    margin-left: 50px;
+    width: 30%;
 }
 
+.material-detail-left .materialpool-template-material-picture-facet {
+    max-width: 400px;
+}
 .material-detail-content {
 
 }
 
 .material-detail-header {
     float: left;
-    width: 80%;
-
+    width: 70%;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .material-detail-main {

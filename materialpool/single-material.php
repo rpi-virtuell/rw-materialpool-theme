@@ -41,9 +41,7 @@ get_header( 'materialpool' ); ?>
             <div class="material-detail-header facet-treffer-content">
                 <h2><?php the_title(); ?></h2>
                 <strong>URL</strong> <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url(); ?></a><br>
-                <strong>Kurzbeschreibung</strong><br>
                 <?php Materialpool_Material::shortdescription(); ?><br>
-                <h2>Beschreibung</h2>
                 <div class="material-detail-main">
                     <div class="material-detail-middle">
                         <?php Materialpool_Material::description(); ?>
@@ -94,12 +92,10 @@ get_header( 'materialpool' ); ?>
                 <div class="material-detail-header facet-treffer-content">
                     <h2><?php the_title(); ?></h2>
                     <strong>URL</strong> <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url(); ?></a><br>
-                    <strong>Kurzbeschreibung</strong><br>
                     <?php Materialpool_Material::shortdescription(); ?><br><br><br>
                     <p>
                         HIER DANN GGF PDF/DOC Viewer oder Video?
                     </p>
-                    <h2>Beschreibung</h2>
                     <div class="material-detail-main">
                         <div class="material-detail-middle">
                             <?php echo  Materialpool_Material::cover_facet_html(); ?>
