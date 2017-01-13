@@ -179,19 +179,21 @@ search-description {
 
 .material-detail-left {
     margin-left: 50px;
-    width: 30%;
+    width: 28%;
+    float: left;
 }
 
 .material-detail-left .materialpool-template-material-picture-facet {
     max-width: 400px;
 }
+
 .material-detail-content {
 
 }
 
 .material-detail-header {
     float: left;
-    width: 70%;
+    width: 65%;
     padding-right: 20px;
     padding-left: 20px;
 }
@@ -211,6 +213,28 @@ search-description {
     float: left;
     width: 20%;
     min-width: 18%;
+    padding-left: 10px;
 
 }
 
+.cta-button {
+    background-color: #0D5282;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-top: 5px;
+}
+
+.materialpool-template-material-organisation {
+    margin-top: 20px;
+}
+
+.materialpool-template-material-autor-logo {
+    max-width: 80px;
+    height: auto;
+}

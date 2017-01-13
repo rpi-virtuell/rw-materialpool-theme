@@ -22,6 +22,10 @@ get_header( 'materialpool' ); ?>
     <div id="content" class="site-content" role="main">
         <div class="material-detail-left">
             <?php echo  Materialpool_Material::cover_facet_html(); ?>
+            <br>
+            <?php echo Materialpool_Material::cta_link(); ?><br>
+            <?php echo Materialpool_Material::cta_url2clipboard(); ?>
+
         </div>
         <div class="material-detail-content">
             <div class="facet-treffer-mediatyps">
@@ -42,21 +46,25 @@ get_header( 'materialpool' ); ?>
                 <h2><?php the_title(); ?></h2>
                 <strong>URL</strong> <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url(); ?></a><br>
                 <?php Materialpool_Material::shortdescription(); ?><br>
+
                 <div class="material-detail-main">
                     <div class="material-detail-middle">
                         <?php Materialpool_Material::description(); ?>
+                        <br>
+                        <?php Materialpool_Material::description_footer(); ?>
                     </div>
                     <div class="material-detail-right">
+                        <?php if(function_exists('the_ratings')) { the_ratings(); } ?><br>
                         <strong>Verfügbarkeit</strong><br>
                         <?php Materialpool_Material::availability(); ?>
                         <br>
-                        <strong>Organisationen dieses Materials</strong> <br>
-                        <?php Materialpool_Material::organisation_html(); ?>
+
+                        <?php Materialpool_Material::organisation_html_cover(); ?>
                         <br>
-                        <strong>Autoren dieses Materials</strong><br>
-                        <?php Materialpool_Material::autor_html(); ?>
+
+                        <?php Materialpool_Material::autor_html_picture(); ?>
                         <br>
-                        <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
+
                     </div>
                 </div>
             </div>
@@ -99,19 +107,21 @@ get_header( 'materialpool' ); ?>
                     <div class="material-detail-main">
                         <div class="material-detail-middle">
                             <?php echo  Materialpool_Material::cover_facet_html(); ?>
-                            <?php Materialpool_Material::description(); ?>
+                            <?php Materialpool_Material::description(); ?><br>
+                            <?php Materialpool_Material::description_footer(); ?>
                         </div>
                         <div class="material-detail-right">
+                            <?php if(function_exists('the_ratings')) { the_ratings(); } ?><br>
                             <strong>Verfügbarkeit</strong><br>
                             <?php Materialpool_Material::availability(); ?>
                             <br>
-                            <strong>Organisationen dieses Materials</strong> <br>
-                            <?php Materialpool_Material::organisation_html(); ?>
+
+                            <?php Materialpool_Material::organisation_html_cover(); ?>
                             <br>
-                            <strong>Autoren dieses Materials</strong><br>
-                            <?php Materialpool_Material::autor_html(); ?>
+
+                            <?php Materialpool_Material::autor_html_picture(); ?>
                             <br>
-                            <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
+
                         </div>
                     </div>
                 </div>
