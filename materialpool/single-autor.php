@@ -29,10 +29,10 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <strong>URL</strong> <?php Materialpool_Autor::url_html(); ?><br>
 
                     <div class="autor-detail-main">
-                        <h3>Organisationen des Autors:</h3><br>
+                        <h3>Organisation(en) der Autorin/des Autors:</h3><br>
                         <?php Materialpool_Autor::organisation_html_cover(); ?>
                         <div class="clear"></div>
-                        <h3>Material des Autors:</h3><br>
+                        <h3>Material der Autorin/des Autors:</h3><br>
                         <?php  echo do_shortcode( '[facetwp template="material_autor"]'); ?>
                     </div>
                 </div>

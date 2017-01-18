@@ -30,7 +30,7 @@ get_header( 'materialpool' ); ?>
                 ALPIKA: <?php if ( Materialpool_Organisation::is_alpika() ) { echo 'Ja'; } else { echo "Nein"; } ?><br>
                 Konfession: <?php Materialpool_Organisation::konfession(); ?><br>
                 <div class="autor-detail-main">
-                    <h3>Autoren der Organisationen:</h3>
+                    <h3>Autorinnen/Autoren der Organisationen:</h3>
                     <?php Materialpool_Organisation::autor_html_picture(); ?>
                     <br>
 
