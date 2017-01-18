@@ -74,7 +74,7 @@ body {
 .facet-treffer-content h2 {
     font-family: 'Cairo','Open Sans',  sans-serif;
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 100;
     margin: 0;
     color: #0D5282;
 }
@@ -193,9 +193,9 @@ search-description {
 
 .material-detail-header {
     float: left;
-    width: 65%;
+    width: 85%;
     padding-right: 20px;
-    padding-left: 20px;
+    margin-left: 50px;
 }
 
 .material-detail-main {
@@ -206,6 +206,7 @@ search-description {
     float: left;
     width: 80%;
     min-width: 78%;
+    padding-right: 50px;
 
 }
 
@@ -272,3 +273,20 @@ search-description {
     padding-bottom: 10px;
 }
 
+.site-content {
+    margin-left: 20px;
+}
+
+.material-detail-shortdescription {
+    color: darkgray;
+    font-size: 20px;
+}
+
+.material-detail-top-header {
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom:20px;
+    width: 95%;
+    border-bottom: solid 1px #000000;
+    clear: both;
+}

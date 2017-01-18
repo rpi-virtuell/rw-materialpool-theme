@@ -19,52 +19,58 @@ if ( ! Materialpool_Material::is_special() &&  ! Materialpool_Material::is_viewe
 
 get_header( 'materialpool' ); ?>
 <section  class="content-area">
+
+
     <div id="content" class="site-content" role="main">
-        <div class="material-detail-left">
-            <?php echo  Materialpool_Material::cover_facet_html(); ?>
-            <br>
-            <?php echo Materialpool_Material::cta_link(); ?><br>
-            <?php echo Materialpool_Material::cta_url2clipboard(); ?>
-
+        <div class="material-detail-top-header">
+            <h2><?php the_title(); ?></h2>
         </div>
-        <div class="material-detail-content">
-            <div class="facet-treffer-mediatyps">
-                <ul>
-                    <?php $type = Materialpool_Material::get_mediatyps_root();
-                    foreach ( $type as $val ) {
-                        ?>
-                        <li>
-                    <span title="<?php echo $val[ 'name' ]; ?>" class="fa-stack fa-2x">
-                        <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
-                        <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
-                    </span>
-                        </li>
-                    <?php } ?>
-                </ul>
+        <div>
+            <div class="material-detail-left">
+
+
+                <?php echo  Materialpool_Material::cover_facet_html(); ?>
+                <a href="<?php Materialpool_Material::url(); ?>"><?php //Materialpool_Material::url_shorten(); ?></a><br>
+                <br>
+                <?php echo Materialpool_Material::cta_link(); ?><br>
+                <?php echo Materialpool_Material::cta_url2clipboard(); ?>
+
             </div>
-            <div class="material-detail-header facet-treffer-content">
-                <h2><?php the_title(); ?></h2>
-                <strong>URL</strong> <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url(); ?></a><br>
-                <?php Materialpool_Material::shortdescription(); ?><br>
+            <div class="material-detail-content">
+                <div class="material-detail-header facet-treffer-content">
+                    <span class="material-detail-shortdescription"><?php Materialpool_Material::shortdescription(); ?></span><br>
+                    <div class="material-detail-main">
+                        <div class="material-detail-middle">
+                            <?php Materialpool_Material::description(); ?>
+                            <br>
+                            <?php Materialpool_Material::description_footer(); ?>
+                        </div>
+                        <div class="material-detail-right">
+                            <div class="facet-treffer-mediatyps">
+                                <?php $type = Materialpool_Material::get_mediatyps_root();
+                                foreach ( $type as $val ) {
+                                    ?>
 
-                <div class="material-detail-main">
-                    <div class="material-detail-middle">
-                        <?php Materialpool_Material::description(); ?>
-                        <br>
-                        <?php Materialpool_Material::description_footer(); ?>
-                    </div>
-                    <div class="material-detail-right">
-                        <?php if(function_exists('the_ratings')) { the_ratings(); } ?><br>
-                        <strong>Verfügbarkeit</strong><br>
-                        <?php Materialpool_Material::availability(); ?>
-                        <br>
+                            <span title="<?php echo $val[ 'name' ]; ?>" class="fa-stack fa-2x">
+                                <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
+                                <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
+                            </span>
 
-                        <?php Materialpool_Material::organisation_html_cover(); ?>
-                        <br>
+                                <?php } ?>
+                            </div>
+                            <div class="clear"></div>
+                            <?php if(function_exists('the_ratings')) { the_ratings(); } ?><br>
+                            <strong>Verfügbarkeit</strong><br>
+                            <?php Materialpool_Material::availability(); ?>
+                            <br>
 
-                        <?php Materialpool_Material::autor_html_picture(); ?>
-                        <br>
+                            <?php Materialpool_Material::organisation_html_cover(); ?>
+                            <br>
 
+                            <?php Materialpool_Material::autor_html_picture(); ?>
+                            <br>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,49 +85,51 @@ get_header( 'materialpool' ); ?>
     get_header( 'materialpool' ); ?>
     <section  class="content-area">
         <div id="content" class="site-content" role="main">
-            <div class="material-detail-left">
-                <?php //echo  Materialpool_Material::cover_facet_html(); ?>
+            <div class="material-detail-top-header">
+                <h2><?php the_title(); ?></h2>
             </div>
-            <div class="material-detail-content">
-                <div class="facet-treffer-mediatyps">
-                    <ul>
-                        <?php $type = Materialpool_Material::get_mediatyps_root();
-                        foreach ( $type as $val ) {
-                            ?>
-                            <li>
-                    <span title="<?php echo $val[ 'name' ]; ?>" class="fa-stack fa-2x">
-                        <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
-                        <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
-                    </span>
-                            </li>
-                        <?php } ?>
-                    </ul>
-                </div>
-                <div class="material-detail-header facet-treffer-content">
-                    <h2><?php the_title(); ?></h2>
-                    <strong>URL</strong> <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url(); ?></a><br>
-                    <?php Materialpool_Material::shortdescription(); ?><br><br><br>
-                    <p>
-                        HIER DANN GGF PDF/DOC Viewer oder Video?
-                    </p>
-                    <div class="material-detail-main">
-                        <div class="material-detail-middle">
-                            <?php echo  Materialpool_Material::cover_facet_html(); ?>
-                            <?php Materialpool_Material::description(); ?><br>
-                            <?php Materialpool_Material::description_footer(); ?>
-                        </div>
-                        <div class="material-detail-right">
-                            <?php if(function_exists('the_ratings')) { the_ratings(); } ?><br>
-                            <strong>Verfügbarkeit</strong><br>
-                            <?php Materialpool_Material::availability(); ?>
-                            <br>
+            <div>
+                <div class="material-detail-content">
+                    <div class="material-detail-header facet-treffer-content">
+                        <p>
+                            HIER DANN GGF PDF/DOC Viewer oder Video?
+                        </p>
 
-                            <?php Materialpool_Material::organisation_html_cover(); ?>
-                            <br>
+                        <div class="material-detail-main">
+                            <div class="material-detail-middle">
+                                <span class="material-detail-shortdescription"><?php Materialpool_Material::shortdescription(); ?></span><br><br><br>
+                                <strong>URL</strong> <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url(); ?></a><br>
 
-                            <?php Materialpool_Material::autor_html_picture(); ?>
-                            <br>
+                                <?php echo  Materialpool_Material::cover_facet_html(); ?>
+                                <?php Materialpool_Material::description(); ?><br>
+                                <?php Materialpool_Material::description_footer(); ?>
+                            </div>
+                            <div class="material-detail-right">
+                                <div class="facet-treffer-mediatyps">
+                                    <?php $type = Materialpool_Material::get_mediatyps_root();
+                                    foreach ( $type as $val ) {
+                                        ?>
 
+                                        <span title="<?php echo $val[ 'name' ]; ?>" class="fa-stack fa-2x">
+                                <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
+                                <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
+                            </span>
+
+                                    <?php } ?>
+                                </div>
+                                <div class="clear"></div>
+                                <?php if(function_exists('the_ratings')) { the_ratings(); } ?><br>
+                                <strong>Verfügbarkeit</strong><br>
+                                <?php Materialpool_Material::availability(); ?>
+                                <br>
+
+                                <?php Materialpool_Material::organisation_html_cover(); ?>
+                                <br>
+
+                                <?php Materialpool_Material::autor_html_picture(); ?>
+                                <br>
+
+                            </div>
                         </div>
                     </div>
                 </div>
