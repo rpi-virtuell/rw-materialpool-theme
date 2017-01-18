@@ -18,3 +18,23 @@ function enqueue_our_required_stylesheets(){
 }
 add_action('wp_enqueue_scripts','enqueue_our_required_stylesheets');
 
+
+function facetwp_query_args_autor( $query_args, $class ) {
+    global $post;
+    if ( 'material_autor' == $class->ajax_params['template'] ) {
+        $query_args['meta_query'][0][ 'value'] = $post->ID;
+    }
+    return $query_args;
+}
+add_filter( 'facetwp_query_args', 'facetwp_query_args_autor', 10, 2 );
+
+function facetwp_query_args_organisation( $query_args, $class ) {
+
+    global $post;
+    if ( 'material_organisation' == $class->ajax_params['template'] ) {
+        $query_args['meta_query'][0][ 'value'] = $post->ID;
+    }
+    return $query_args;
+}
+add_filter( 'facetwp_query_args', 'facetwp_query_args_organisation', 10, 2 );
+

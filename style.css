@@ -238,3 +238,37 @@ search-description {
     max-width: 80px;
     height: auto;
 }
+
+.autor-detail-left {
+    margin-left: 50px;
+    width: 28%;
+    float: left;
+}
+
+. autor-detail-main {
+    width: 70%;
+    float: left;
+}
+
+.materialpool-template-autor-organisation {
+    padding-top: 10px;
+    padding-right: 10px;
+    width: 150px;
+    height: 200px;
+    float: left;
+}
+
+.materialpool-template-autor-material {
+    padding-bottom: 10px;
+    clear: both;
+}
+
+.materialpool-template-autor-material-logo {
+    height: auto;
+    padding-bottom: 20px;
+}
+
+.materialpool-template-material-picture-facet {
+    padding-bottom: 10px;
+}
+
