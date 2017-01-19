@@ -23,7 +23,7 @@ body {
     float: left;
     padding-right: 5px;
     padding-top: 5px;
-    width: 32px;
+
 }
 
 .facet-treffer-mediatyps ul {
@@ -179,7 +179,7 @@ search-description {
 
 .material-detail-left {
     margin-left: 50px;
-    width: 28%;
+    width: 20%;
     float: left;
 }
 
@@ -188,18 +188,20 @@ search-description {
 }
 
 .material-detail-content {
-
+float: left;
+    width: 75%;
 }
 
 .material-detail-header {
     float: left;
-    width: 85%;
+    width: 100%;
     padding-right: 20px;
     margin-left: 50px;
 }
 
 .material-detail-main {
     float: left;
+    width: 100%;
 }
 
 .material-detail-middle {
@@ -242,7 +244,7 @@ search-description {
 
 .autor-detail-left {
     margin-left: 50px;
-    width: 28%;
+    width: 20%;
     float: left;
 }
 

@@ -29,7 +29,7 @@ get_header( 'materialpool' ); ?>
             <div class="material-detail-left">
 
 
-                <?php echo  Materialpool_Material::cover_facet_html(); ?>
+                <?php echo  Materialpool_Material::cover_facet_html_noallign(); ?>
                 <a href="<?php Materialpool_Material::url(); ?>"><?php //Materialpool_Material::url_shorten(); ?></a><br>
                 <br>
                 <?php echo Materialpool_Material::cta_link(); ?><br>
