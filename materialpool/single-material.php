@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
-if ( ! Materialpool_Material::is_special() &&  ! Materialpool_Material::is_viewer() ) {
+if ( ! Materialpool_Material::is_special() &&  ! Materialpool_Material::is_viewer()  &&  ! Materialpool_Material::is_embed()  ) {
 
 
 get_header( 'materialpool' ); ?>
@@ -30,7 +30,7 @@ get_header( 'materialpool' ); ?>
 
 
                 <?php echo  Materialpool_Material::cover_facet_html_noallign(); ?>
-                <a href="<?php Materialpool_Material::url(); ?>"><?php //Materialpool_Material::url_shorten(); ?></a><br>
+                <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url_shorten(); ?></a><br>
                 <br>
                 <?php echo Materialpool_Material::cta_link(); ?><br>
                 <?php echo Materialpool_Material::cta_url2clipboard(); ?>
@@ -92,13 +92,19 @@ get_header( 'materialpool' ); ?>
                 <div class="material-detail-content">
                     <div class="material-detail-header facet-treffer-content">
                         <p>
-                            HIER DANN GGF PDF/DOC Viewer oder Video?
+                            <?php if ( Materialpool_Material::is_viewer() ) {
+                                echo do_shortcode( '[viewerjs "'. Materialpool_Material::get_url() .'" ]' );
+                            } else {
+                                echo wp_oembed_get( "https://youtu.be/9XooVQp3et4", array( 'width' => '900'));
+                            }
+                            ?>
+
                         </p>
 
                         <div class="material-detail-main">
                             <div class="material-detail-middle">
                                 <span class="material-detail-shortdescription"><?php Materialpool_Material::shortdescription(); ?></span><br><br><br>
-                                <strong>URL</strong> <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url(); ?></a><br>
+                                <a href="<?php Materialpool_Material::url(); ?>"><?php Materialpool_Material::url_shorten(); ?></a><br>
 
                                 <?php echo  Materialpool_Material::cover_facet_html(); ?>
                                 <?php Materialpool_Material::description(); ?><br>
