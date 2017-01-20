@@ -44,6 +44,26 @@ get_header( 'materialpool' ); ?>
                             <?php Materialpool_Material::description(); ?>
                             <br>
                             <?php Materialpool_Material::description_footer(); ?>
+                            <?php if ( Materialpool_Material::has_verweise() ) { ?>
+                                <div class="">
+                                <h3>Siehe auch</h3>
+                                    <?php  echo do_shortcode( '[facetwp template="material_verweise"]'); ?>
+                                </div>
+                            <?php } ?>
+
+                            <?php if ( Materialpool_Material::is_werk() ) { ?>
+                                <h3>Dies ist ein Werk. Folgende Bände sind zugeordnet:</h3>
+                                <?php Materialpool_Material::volumes_html( true ); ?><br>
+                            <?php } ?>
+
+
+                            <?php if ( Materialpool_Material::is_part_of_werk() ) { ?>
+
+                                <h3>Dieser Band ist teil eines Werks. Folgende Bände umfasst das Werk:</h3>
+                                <?php Materialpool_Material::sibling_volumes_html( true ); ?><br>
+                            <?php } ?>
+
+
                         </div>
                         <div class="material-detail-right">
                             <div class="facet-treffer-mediatyps">
@@ -109,6 +129,25 @@ get_header( 'materialpool' ); ?>
                                 <?php echo  Materialpool_Material::cover_facet_html(); ?>
                                 <?php Materialpool_Material::description(); ?><br>
                                 <?php Materialpool_Material::description_footer(); ?>
+                                <?php if ( Materialpool_Material::has_verweise() ) { ?>
+                                    <div class="">
+                                        <h3>Siehe auch</h3>
+                                        <?php  echo do_shortcode( '[facetwp template="material_verweise"]'); ?>
+                                    </div>
+                                <?php } ?>
+
+                                <?php if ( Materialpool_Material::is_werk() ) { ?>
+                                    <h3>Dies ist ein Werk. Folgende Bände sind zugeordnet:</h3>
+                                    <?php Materialpool_Material::volumes_html( true ); ?><br>
+                                <?php } ?>
+
+
+                                <?php if ( Materialpool_Material::is_part_of_werk() ) { ?>
+
+                                    <h3>Dieser Band ist teil eines Werks. Folgende Bände umfasst das Werk:</h3>
+                                    <?php Materialpool_Material::sibling_volumes_html( true ); ?><br>
+                                <?php } ?>
+
                             </div>
                             <div class="material-detail-right">
                                 <div class="facet-treffer-mediatyps">

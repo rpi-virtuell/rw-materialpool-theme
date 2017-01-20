@@ -38,3 +38,13 @@ function facetwp_query_args_organisation( $query_args, $class ) {
 }
 add_filter( 'facetwp_query_args', 'facetwp_query_args_organisation', 10, 2 );
 
+
+function facetwp_query_args_material_verweise( $query_args, $class ) {
+    global $post;
+    if ( 'material_verweise' == $class->ajax_params['template'] ) {
+        $query_args['post__in'] = Materialpool_Material::get_verweise_ids();
+    }
+    return $query_args;
+}
+add_filter( 'facetwp_query_args', 'facetwp_query_args_material_verweise', 10, 2 );
+
