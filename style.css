@@ -94,6 +94,9 @@ div.material-detail-image, .material-detail .materialpool-template-material-pict
     color: #999;
     font-weight: 400;
 }
+.viewerjsurlmeta {
+    margin: -30px 5px 2px;
+}
 
 a.cta-button {
     background-color: #0D5282;
@@ -130,6 +133,28 @@ div.facet-treffer-mediatyps{
     width:auto;
     float:left;
 }
+.materialpool-template-material-organisation-logo {
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100px;
+    width: 100%;
+    border: 1px solid #dddddd;
+}
+.materialpool-template-material-autor-logo {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 185px;
+    width: 100%;
+    background-clip: padding-box;
+    background-color: linen;
+    border: 1px solid lightsteelblue;
+}
+.material-detail-meta-author div{
+    margin-bottom: 20px;
+}
+
 .material-meta h4{
     color: #999;
     font-weight: 400;
