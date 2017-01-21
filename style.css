@@ -76,7 +76,7 @@ a {
 div.material-detail-image, .material-detail .materialpool-template-material-picture-facet{
     width: 100%;
 }
-.material-detail-content-viewer .material-detail-image{
+.material-detail-image{
     border: 1px solid lightsteelblue;
     margin-bottom: 20px;
 }
