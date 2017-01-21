@@ -18,7 +18,6 @@ function enqueue_our_required_stylesheets(){
 }
 add_action('wp_enqueue_scripts','enqueue_our_required_stylesheets');
 
-
 function facetwp_query_args_autor( $query_args, $class ) {
     global $post;
     if ( 'material_autor' == $class->ajax_params['template'] ) {
