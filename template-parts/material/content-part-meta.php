@@ -23,11 +23,6 @@
 </div>
 <div class="material-meta" style="clear: both;height:10px;"></div>
 
-<div class="material-detail-bildungsstufe material-meta">
-    <h4>Bildungskontext</h4>
-    <p><?php echo Materialpool_Material::bildungsstufen() ?></p>
-</div>
-
 <!--
 
 <div class="material-detail-meta-access material-meta">
@@ -42,4 +37,12 @@
     <?php Materialpool_Material::autor_html_picture(); ?>
 </div>
 
+<div class="material-detail-bildungsstufe material-meta">
+    <h4>Bildungskontext</h4>
+    <p><?php echo Materialpool_Material::bildungsstufen() ?>
+        <?php if ( Materialpool_Material::inklusion_facet_html() != '' ) :?>
+        , inklusiver Unterricht.
+        <?php endif; ?>
+    </p>
+</div>
 

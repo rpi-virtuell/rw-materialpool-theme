@@ -9,7 +9,7 @@
 <?php if ( Materialpool_Material::has_verweise() ) : ?>
     <div class="material-detail-verweise material-links">
         <h4>Siehe auch:</h4>
-        <?php  echo do_shortcode( '[facetwp template="material_verweise"]'); ?>
+        <?php // echo do_shortcode( '[facetwp template="material_verweise"]'); ?>
     </div>
 <?php endif; ?>
 
