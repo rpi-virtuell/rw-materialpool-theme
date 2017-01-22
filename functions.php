@@ -13,6 +13,13 @@ if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
 endif;
 add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
+if ( !function_exists( 'load_rw_materialpool_js' ) ):
+    function load_rw_materialpool_js() {
+        wp_enqueue_script( 'load_rw_materialpool_js', get_stylesheet_directory_uri() . '/js/facet_labels.js', array (), 0.1, true);
+    }
+endif;
+add_action( 'wp_enqueue_scripts', 'load_rw_materialpool_js', 10 );
+
 function enqueue_our_required_stylesheets(){
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 }

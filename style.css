@@ -203,9 +203,36 @@ div.facet-treffer-mediatyps{
 .blog:not(.has-sidebar) #primary article, .archive:not(.page-one-column):not(.has-sidebar) #primary article, .search:not(.has-sidebar) #primary article, .error404:not(.has-sidebar) #primary .page-content, .error404.has-sidebar #primary .page-content, body.page-two-column:not(.archive) #primary .entry-content, body.page-two-column #comments {
     width: 100%;
 }
-.page-template-default .entry-content > div{
-    padding-right: 40px;
+h5.facet-label.suche{
+    display:none;
 }
+.facetwp-facet-suche{
+    width:80%;
+}
+div.material-suche .facetwp-btn {
+    border: 1px solid steelblue;
+    cursor: pointer;
+    margin-right: -53px;
+    padding: 13px 13px 11px;
+    position: relative;
+    float:right;
+}
+
+.material-facetscontainer{
+    background-color: lightgoldenrodyellow;
+    float: left;
+    width: 27%;
+    min-width: 220px;
+    margin-right:3%;
+}
+.material-facetscontainer .mfacet-wrap{
+    margin: 5px;
+}
+
+.material-resultcontainer{
+    float: left; width: 70%;
+}
+
 
 /* facetts */
 
