@@ -133,6 +133,8 @@ div.facet-treffer-mediatyps{
     width:auto;
     float:left;
 }
+
+
 .materialpool-template-material-organisation-logo {
     background-position: left bottom;
     background-repeat: no-repeat;
@@ -203,21 +205,57 @@ div.facet-treffer-mediatyps{
 .blog:not(.has-sidebar) #primary article, .archive:not(.page-one-column):not(.has-sidebar) #primary article, .search:not(.has-sidebar) #primary article, .error404:not(.has-sidebar) #primary .page-content, .error404.has-sidebar #primary .page-content, body.page-two-column:not(.archive) #primary .entry-content, body.page-two-column #comments {
     width: 100%;
 }
+
+/*header ausblenden*/
+.page-template-default .site-content{
+    padding-top: 40px;
+}
+.page-template-default header.entry-header{
+    display: none;
+}
+
+
+/** Suchfeld  */
 h5.facet-label.suche{
     display:none;
 }
-.facetwp-facet-suche{
-    width:80%;
+div.facetwp-facet-suche {
+    margin: 0;
+    width: 100%;
 }
 div.material-suche .facetwp-btn {
-    border: 1px solid steelblue;
+    border: 1px solid #ccc;
     cursor: pointer;
     margin-right: -53px;
     padding: 13px 13px 11px;
     position: relative;
     float:right;
+    border-radius: 3px;
+    background-color: lightgoldenrodyellow;
+    opacity: 1;
+}
+div.material-suche .facetwp-btn:hover{
+    background-color: palegoldenrod;
+    opacity: 1;
+}
+/** conter & pager */
+.material-counter {
+    width: 220px;
+    float: left;
+}
+.facetwp-counts{
+    display: inline;
+}
+.material-pager {
+    width: 300px;
+    float: right;
+}
+.material-pager div.facetwp-pager{
+    float: right;
+    display: inline;
 }
 
+/** Facetten Column  */
 .material-facetscontainer{
     background-color: lightgoldenrodyellow;
     float: left;
@@ -228,7 +266,6 @@ div.material-suche .facetwp-btn {
 .material-facetscontainer .mfacet-wrap{
     margin: 5px;
 }
-
 .material-resultcontainer{
     float: left; width: 70%;
 }
@@ -266,8 +303,14 @@ div.material-suche .facetwp-btn {
 
 .facet-treffer-content {
     float: left;
-    width: 580px;
+    width: 90%;
 }
+
+div.facet-treffer div.facet-treffer-mediatyps{
+    width:8%;
+    float:left;
+}
+
 
 .facet-treffer-content h2 {
     font-family: 'Cairo','Open Sans',  sans-serif;
