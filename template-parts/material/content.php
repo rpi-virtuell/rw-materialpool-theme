@@ -8,7 +8,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="material-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 		if ( is_sticky() && is_home() ) :
 			echo twentyseventeen_get_svg( array( 'icon' => 'thumb-tack' ) );
@@ -83,14 +83,6 @@
             <?php  get_template_part('template-parts/material/content-part-footer', get_post_format()); ?>
         </footer>
 
-        <?php
-        wp_link_pages( array(
-            'before'      => '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
-            'after'       => '</div>',
-            'link_before' => '<span class="page-number">',
-            'link_after'  => '</span>',
-        ) );
-		?>
 
-
+    </div>
 </article><!-- #post-## -->
