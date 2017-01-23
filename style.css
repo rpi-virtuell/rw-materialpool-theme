@@ -197,7 +197,11 @@ div.facet-treffer-mediatyps{
     color: #000000;
 }
 
+/*header-bild*/
+.custom-header-media {
+    top: -324px!important;
 
+}
 
 /* material list +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
@@ -216,6 +220,9 @@ div.facet-treffer-mediatyps{
 
 
 /** Suchfeld  */
+div.material-suche{
+    width:94%;
+}
 h5.facet-label.suche{
     display:none;
 }
@@ -231,11 +238,11 @@ div.material-suche .facetwp-btn {
     position: relative;
     float:right;
     border-radius: 3px;
-    background-color: lightgoldenrodyellow;
+    background-color: #666965;
     opacity: 1;
 }
 div.material-suche .facetwp-btn:hover{
-    background-color: palegoldenrod;
+    background-color: #706B39;
     opacity: 1;
 }
 /** conter & pager */
@@ -257,11 +264,14 @@ div.material-suche .facetwp-btn:hover{
 
 /** Facetten Column  */
 .material-facetscontainer{
-    background-color: lightgoldenrodyellow;
+    background-color: #666965;
     float: left;
     width: 27%;
     min-width: 220px;
     margin-right:3%;
+}
+.material-facetscontainer *{
+    color:white!important;
 }
 .material-facetscontainer .mfacet-wrap{
     margin: 5px;

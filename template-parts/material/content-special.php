@@ -62,8 +62,10 @@
                         //Materialpool_Material::cover_facet_html_noallign();
 
                     } else {
-                        //@todo: Hardlink ersetzen
-                        echo wp_oembed_get( "https://youtu.be/9XooVQp3et4", array( 'width' => '900'));
+
+                        echo wp_oembed_get( Materialpool_Material::get_url() );
+
+                        echo '<p class="clear">Quelle: '.Materialpool_Material::get_url().'</p>';
                     }
                     ?>
 
