@@ -7,93 +7,69 @@
  *
  */
 
-get_header(); ?>
+if ( ! defined( 'ABSPATH' ) ) {
+    exit; // Exit if accessed directly
+}
+
+get_header( 'materialpool' ); ?>
 
     <div class="wrap">
-        <aside id="secondary" class="widget-area facetwp-template" role="complementary">
-            <section class="widget">
-                <h2>Bewertung</h2>
-                <?php echo facetwp_display( 'facet', 'bewertung' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Erscheinungsjahr</h2>
-                <?php echo facetwp_display( 'facet', 'erscheinungsjahr' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Erscheinungsjahr</h2>
-                <?php echo facetwp_display( 'facet', 'erscheinungsjahr' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Erfassungsdatum</h2>
-                <?php echo facetwp_display( 'facet', 'erfassungsdatum' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Autor</h2>
-                <?php echo facetwp_display( 'facet', 'autor' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Organisation</h2>
-                <?php echo facetwp_display( 'facet', 'organisation' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Bildungsstufe</h2>
-                <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Inklusion</h2>
-                <?php echo facetwp_display( 'facet', 'inklusion' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Lizenz</h2>
-                <?php echo facetwp_display( 'facet', 'lizenz' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Medientyp</h2>
-                <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Schlagworte</h2>
-                <?php echo facetwp_display( 'facet', 'schlagworte' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Sprache</h2>
-                <?php echo facetwp_display( 'facet', 'sprache' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Verfügbarkeit</h2>
-                <?php echo facetwp_display( 'facet', 'verfuegbarkeit' ); ?>
-            </section>
-
-            <section class="widget">
-                <h2>Zugänglichkeit</h2>
-                <?php echo facetwp_display( 'facet', 'zugaenglichkeit' ); ?>
-            </section>
-
-        </aside><!-- #secondary -->
         <div id="primary" class="content-area">
-            <main id="main" class="site-main  facetwp-template" role="main">
+            <main id="main" class="site-main" role="main">
+                <div class="wrap">
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main" role="main">
+                            <div class="entry-content material-facet-search">
+                                <div class="material-facetscontainer">
+                                    <div class="mfacet-wrap">
+                                        <div class="first-search-facets">
+                                            <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
 
-                <?php echo facetwp_display( 'facet', 'suche' ); ?>
-
-                <?php echo facetwp_display( 'facet', 'alphabet' ); ?>
-
-                <?php echo facetwp_display( 'template', 'example' ); ?>
-
-            </main><!-- #main -->
-        </div><!-- #primary -->
-
-    </div><!-- .wrap -->
-
+                                        </div>
+                                        <div class="second-search-facets">
+                                            <?php echo facetwp_display( 'facet', 'schlagworte' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'inklusion' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'organisation' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'autor' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'lizenz' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'sprache' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'verfuegbarkeit' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'zugaenglichkeit' ); ?>
+                                        </div>
+                                        <div class="advanced-search-facets" style="display:none">
+                                            <?php echo facetwp_display( 'facet', 'erscheinungsjahr' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'erfassungsdatum' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'bewertung' ); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="material-resultcontainer">
+                                    <div class="material-suche">
+                                        <?php echo facetwp_display( 'facet', 'suche' ); ?>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="material-selection"><?php echo facetwp_display( 'selections' ); ?></div>
+                                    <div>
+                                        <div class="material-counter">
+                                            <?php echo facetwp_display( 'counts' ); ?>
+                                        </div>
+                                        <div class="material-pager">
+                                            <?php echo facetwp_display( 'pager' ); ?>
+                                        </div>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="material-results"><?php echo facetwp_display( 'template', 'example' ); ?></div>
+                                    <div class="material-pager"><?php echo facetwp_display( 'pager' ); ?></div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
 <?php get_footer();
+
+
+

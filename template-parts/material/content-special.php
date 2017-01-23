@@ -58,14 +58,10 @@
                     <?php if ( Materialpool_Material::is_viewer() ) {
                         echo do_shortcode( '[viewerjs "'. Materialpool_Material::get_url() .'" ]' );
 
-                    //} elseif(Materialpool_Material::is_image()) {
-                        //Materialpool_Material::cover_facet_html_noallign();
-
                     } else {
 
-                        echo wp_oembed_get( Materialpool_Material::get_url() );
-
-                        echo '<p class="clear">Quelle: '.Materialpool_Material::get_url().'</p>';
+                        echo wp_oembed_get( Materialpool_Material::get_url(),array('width'=>'9000', 'height'=>'500') );
+                        echo '<p class="viewerjsurlmeta">Quelle: <span class="viewerjsurl">'.Materialpool_Material::get_url().'</span></p>';
                     }
                     ?>
 
@@ -76,7 +72,7 @@
                 <?php Materialpool_Material::shortdescription(); ?>
             </div>
             <div class="material-detail-description material-desc">
-                <?php Materialpool_Material::description(); ?>
+                <?php echo do_shortcode(Materialpool_Material::get_description()); ?>
             </div>
             <div class="material-detail-description-footer material-desc">
                 <?php Materialpool_Material::description_footer(); ?>
