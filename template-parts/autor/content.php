@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php
         if ( 'autor' === get_post_type() ) :
             if ( is_single() ) {
-                ?><h1 class="entry-title"><?php Materialpool_Autor::firstname();?> <?php Materialpool_Autor::lastname();?></h1><?php
+                ?><h1 class="entry-title">Materialien von <?php Materialpool_Autor::firstname();?> <?php Materialpool_Autor::lastname();?></h1><?php
             } else {
                 the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
             }
@@ -42,7 +42,6 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="autor-content">
 
                 <div class="material-suche">
-                    <h3>Geht nicht</h3>
                     <?php echo facetwp_display( 'facet', 'suche' ); ?>
                 </div>
                 <div class="clear"></div>
@@ -51,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 </div>
                 <div>
                     <div class="material-counter">
-                        <?php echo facetwp_display( 'counts' ); ?> Treffer ????
+                        <?php echo facetwp_display( 'counts' ); ?> Treffer
                     </div>
                     <div class="material-pager">
                         <?php echo facetwp_display( 'pager' ); ?>
