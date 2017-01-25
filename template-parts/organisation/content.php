@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <?php endif;?>
             </div>
             <div class="material-detail-buttons">
-                <a class="cta-button" href="<?php Materialpool_Organisation::get_url(); ?>">Webseite</a>
+                <a class="cta-button" href="<?php echo Materialpool_Organisation::get_url(); ?>">Webseite</a>
             </div>
         </div>
         <div class="organisation-content">
