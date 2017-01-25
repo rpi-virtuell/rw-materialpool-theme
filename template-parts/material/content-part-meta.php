@@ -23,26 +23,37 @@
 </div>
 <div class="material-meta" style="clear: both;height:10px;"></div>
 
-<!--
-
-<div class="material-detail-meta-access material-meta">
-    <h4>Verfügbarkeit</h4>
-    <?php Materialpool_Material::availability(); ?>
-</div>
--->
-
 <div class="material-detail-meta-author material-meta">
+    <?php if(Materialpool_Material::get_organisation() || Materialpool_Material::get_autor()): ?>
     <h4>Herkunft</h4>
-    <?php Materialpool_Material::organisation_html_cover(); ?>
-    <?php Materialpool_Material::autor_html_picture(); ?>
+    <div class="material-meta-content-entry">
+    <?php endif;?>
+    <?php if(Materialpool_Material::get_organisation()): ?>
+        <?php Materialpool_Material::organisation_html_cover(); ?>
+    <?php endif;?>
+    <?php if(Materialpool_Material::get_autor()):?>
+        <?php Materialpool_Material::autor_html_picture(); ?>
+    <?php endif;?>
+    </div>
 </div>
 
 <div class="material-detail-bildungsstufe material-meta">
-    <h4>Bildungskontext</h4>
-    <p><?php echo Materialpool_Material::bildungsstufen() ?>
-        <?php if ( Materialpool_Material::inklusion_facet_html() != '' ) :?>
-        , inklusiver Unterricht.
-        <?php endif; ?>
-    </p>
+    <?php if (Materialpool_Material::bildungsstufen()):?>
+        <h4>Bildungskontext</h4>
+        <div class="material-meta-content-entry">
+            <div>
+                <?php echo Materialpool_Material::bildungsstufen();?>
+                <?php if ( Materialpool_Material::inklusion_facet_html() != '' ) :?>
+                , inklusiver Unterricht.
+                <?php endif;?>
+            </div>
+        </div>
+    <?php endif; ?>
 </div>
 
+<div class="material-detail-meta-access material-meta">
+    <h4>Verfügbarkeit</h4>
+    <div class="material-meta-content-entry">
+        <?php Materialpool_Material::availability(); ?>
+    </div>
+</div>

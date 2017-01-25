@@ -38,6 +38,34 @@ a {
 }
 
 
+/* single organisation ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+.entry-content.organisation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    min-width: 400px;
+}
+.organisation-left {
+    flex: 0 25%;
+}
+div.organisation-left .organisation-image img{
+    width: 100%; opacity: 0;
+}
+div.organisation-left .organisation-image{
+    width:100%;
+    background-size: cover;
+    background-position: center center;
+}
+.organisation-content {
+    flex: 1;
+    padding: 0 5%;
+}
+
+.organisation-right{
+    flex: 0 13%;
+}
 /* single autor ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 .entry-content.autor {
@@ -183,7 +211,9 @@ div.facet-treffer-mediatyps{
 .material-detail-meta-author div{
     margin-bottom: 20px;
 }
-
+.material-meta .material-meta-content-entry{
+    margin-left: 5%;
+}
 .material-meta h4{
     color: #999;
     font-weight: 400;

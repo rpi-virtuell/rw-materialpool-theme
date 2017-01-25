@@ -8,8 +8,8 @@
 ?>
 <?php if ( Materialpool_Material::has_verweise() ) : ?>
     <div class="material-detail-verweise material-links">
-        <h4>Siehe auch:</h4>
-        <?php // echo do_shortcode( '[facetwp template="material_verweise"]'); ?>
+        <h4>Siehe dazu auch folgendes Material:</h4>
+        <?php echo facetwp_display( 'template', 'material_verweise' ); ?>
     </div>
 <?php endif; ?>
 

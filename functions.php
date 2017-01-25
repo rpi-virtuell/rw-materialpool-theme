@@ -46,13 +46,14 @@ add_filter( 'facetwp_query_args', 'facetwp_query_args_autor', 10, 2 );
 
 function facetwp_query_args_organisation( $query_args, $class ) {
 
-global $post;
     if (defined('DOING_AJAX') && DOING_AJAX) {
+
         if ('material_organisation' == $class->ajax_params['template']) {
             $organisation =  get_page_by_path( str_replace('organisation/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'organisation' );
             $query_args['meta_query'][0][ 'value'] = (string)$organisation->ID;
         }
     } else {
+        global $post;
         if ('material_organisation' == $class->ajax_params['template']) {
             $query_args['meta_query'][0]['value'] = $post->ID;
         }

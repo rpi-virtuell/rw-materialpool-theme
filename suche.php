@@ -52,7 +52,7 @@ get_header( 'materialpool' ); ?>
                                     <div class="material-selection"><?php echo facetwp_display( 'selections' ); ?></div>
                                     <div>
                                         <div class="material-counter">
-                                            <?php echo facetwp_display( 'counts' ); ?>
+                                            <?php echo facetwp_display( 'counts' ); ?> Treffer
                                         </div>
                                         <div class="material-pager">
                                             <?php echo facetwp_display( 'pager' ); ?>
