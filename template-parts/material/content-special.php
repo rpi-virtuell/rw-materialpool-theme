@@ -18,7 +18,7 @@
         <?php
         if ( 'material' === get_post_type() ) :
             echo '<div class="entry-meta">';
-            if ( is_single() ) {?>
+            if ( is_single() && !Materialpool_Material::is_special()) {?>
                 <div class="material-detail-url">
                     <a href="<?php Materialpool_Material::url(); ?>">
                         <?php Materialpool_Material::url_shorten(); ?>
@@ -53,19 +53,18 @@
 
         <div class="material-detail-content-viewer material-column">
 
-            <div class="material-detail-image">
+            <?php if ( Materialpool_Material::is_viewer() ):?>
+                <div class="material-detail-content-viewer material-column">
+                    <?php echo do_shortcode( '[viewerjs "'. Materialpool_Material::get_url() .'" ]' );?>
+                </div>
+            <?php elseif(Materialpool_Material::is_special()):?>
 
-                    <?php if ( Materialpool_Material::is_viewer() ) {
-                        echo do_shortcode( '[viewerjs "'. Materialpool_Material::get_url() .'" ]' );
-
-                    } else {
-
-                        echo wp_oembed_get( Materialpool_Material::get_url(),array('width'=>'9000', 'height'=>'500') );
-                        echo '<p class="viewerjsurlmeta">Quelle: <span class="viewerjsurl">'.Materialpool_Material::get_url().'</span></p>';
-                    }
-                    ?>
-
-            </div>
+            <?php else:?>
+                <div class="material-detail-content-viewer material-column">
+                    <?php echo wp_oembed_get( Materialpool_Material::get_url(),array('width'=>'9000', 'height'=>'500') );?>
+                    <p class="viewerjsurlmeta">Quelle: <span class="viewerjsurl"><?php echo Materialpool_Material::get_url();?></span></p>
+                </div>
+            <?php endif;?>
 
 
             <div class="material-detail-shortdescription material-desc">
@@ -75,19 +74,23 @@
                 <?php echo do_shortcode(Materialpool_Material::get_description()); ?>
             </div>
             <div class="material-detail-description-footer material-desc">
-                <?php Materialpool_Material::description_footer(); ?>
+                <?php if(!Materialpool_Material::is_special()):?>
+                    <?php Materialpool_Material::description_footer(); ?>
+                <?php endif;?>
             </div>
             <?php  get_template_part('template-parts/material/content-part-links', get_post_format()); ?>
         </div>
 
         <div class="material-detail-right material-meta-container material-column">
-            <?php  get_template_part('template-parts/material/content-part-meta', get_post_format()); ?>
 
-            <div class="material-detail-buttons material-meta">
-                <h4>Material anwenden</h4>
-                <?php echo Materialpool_Material::cta_link(); ?>
-                <?php echo Materialpool_Material::cta_url2clipboard(); ?>
-            </div>
+             <?php  get_template_part('template-parts/material/content-part-meta', get_post_format()); ?>
+            <?php if(!Materialpool_Material::is_special()):?>
+                <div class="material-detail-buttons material-meta">
+                    <h4>Material anwenden</h4>
+                    <?php echo Materialpool_Material::cta_link(); ?>
+                    <?php echo Materialpool_Material::cta_url2clipboard(); ?>
+                </div>
+            <?php endif;?>
         </div>
         <footer class="material-detail-footer">
             <?php  get_template_part('template-parts/material/content-part-footer', get_post_format()); ?>

@@ -31,21 +31,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <div class="organisation-left">
 
-            <div class="organisation-image" style="background-image: url('<?php echo Materialpool_Organisation::get_logo(); ?>'); background-repeat: no-repeat; ">
-                <img src="<?php echo Materialpool_Organisation::get_logo(); ?>" sytle="opacity:0">
+            <?php if(Materialpool_Organisation::get_logo()):?>
+                <div class="organisation-image" style="background-image: url('<?php echo Materialpool_Organisation::get_logo(); ?>'); background-repeat: no-repeat; ">
+                    <img src="<?php echo Materialpool_Organisation::get_logo(); ?>" sytle="opacity:0">
+                </div>
+            <?php else:?>
+                <h2 class="image-alt">
+                    <?php Materialpool_Organisation::title();?>
+                </h2>
+            <?php endif;?>
+
+
+            <div class="first-search-facets">
+                <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
+                <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
+
             </div>
             <div>
                 <?php if(Materialpool_Organisation::is_alpika()):?>
-                    <p>
-                    Dieses Institut ist Teil der
-                    <a href="http://www.relinet.de/alpika.html">Arbeitsgemeinschaft</a> der Leiterinnen und Leiter der
-                    Pädagogischen Institute und Katechetischen Ämter in der Evangelischen Kirche an.
+                    <p><img class="alpika-logo" src="http://material.rpi-virtuell.de/wp-content/plugins/rw-materialpool//assets/alpika.png">
+                        <?php Materialpool_Organisation::title();?> ist Teil der <a href="http://www.relinet.de/alpika.html">Arbeitsgemeinschaft</a>
+                        der Leiterinnen und Leiter der Pädagogischen Institute und Katechetischen Ämter
+                        <img class="ekd-logo" src="https://datenschutz.ekd.de/wp-content/uploads/2015/01/EKD-Logo.png">
+                        in der Evangelischen Kirche in Deutschland.
                     </p>
+                <?php elseif(Materialpool_Organisation::get_konfession() == 'evangelisch'):?>
+                    <img class="ekd-logo" src="https://datenschutz.ekd.de/wp-content/uploads/2015/01/EKD-Logo.png">
+                    Eine Einrichtung in der evangelischen Kirche.
                 <?php endif;?>
             </div>
+
             <div class="material-detail-buttons">
-                <a class="cta-button" href="<?php echo Materialpool_Organisation::get_url(); ?>">Webseite</a>
+                <a class="cta-button" href="<?php echo Materialpool_Organisation::get_url(); ?>">Homepage der Einrichtung</a>
             </div>
+
         </div>
         <div class="organisation-content">
 

@@ -30,9 +30,20 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="entry-content autor">
 
         <div class="autor-left">
+            <?php if(Materialpool_Autor::get_picture()):?>
+                <div class="autor-image">
+                    <?php Materialpool_Autor::picture_html(); ?><br>
+                    <?php Materialpool_Autor::firstname();?> <?php Materialpool_Autor::lastname();?>
+                </div>
+            <?php else:?>
+                <h3 class="image-alt">
+                    <?php Materialpool_Autor::firstname();?> <?php Materialpool_Autor::lastname();?>
+                </h3>
+            <?php endif;?>
+            <div class="first-search-facets">
+                <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
+                <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
 
-            <div class="autor-image">
-                <?php Materialpool_Autor::picture_html(); ?>
             </div>
 
             <div class="material-detail-buttons">
@@ -66,6 +77,16 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <h4>Organisationen</h4>
                     <?php Materialpool_Autor::organisation_html_cover(); ?>
             </div>
+            <?php if(Materialpool_Autor::get_count_posts_per_autor()>4):?>
+            <div class="autor-right badges material-meta">
+                <h4>Auszeichnungen</h4>
+                <div class="author-badge <?php if(Materialpool_Autor::get_count_posts_per_autor()>4) echo 'grau' ;?>">
+                    5+ Materialien<br>
+                    bei rpi-virtuell
+                </div>
+
+            </div>
+            <?php endif;?>
         </div>
 
 
