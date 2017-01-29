@@ -25,6 +25,7 @@ get_header( 'materialpool' ); ?>
                                         <div class="first-search-facets">
                                             <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
                                             <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'alpika' ); ?>
 
                                         </div>
                                         <div class="second-search-facets">
@@ -36,6 +37,7 @@ get_header( 'materialpool' ); ?>
                                             <?php echo facetwp_display( 'facet', 'sprache' ); ?>
                                             <?php echo facetwp_display( 'facet', 'verfuegbarkeit' ); ?>
                                             <?php echo facetwp_display( 'facet', 'zugaenglichkeit' ); ?>
+
                                         </div>
                                         <div class="advanced-search-facets" style="display:none">
                                             <?php echo facetwp_display( 'facet', 'erscheinungsjahr' ); ?>

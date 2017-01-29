@@ -113,14 +113,26 @@ div.organisation-left .image-alt, .autor-left .image-alt{
     width: 100%
 }
 
-.author-badge.grau{
+.author-badge{
     width:100%;
     height:180px;
-    background-image: url('http://material.rpi-virtuell.de/wp-content/uploads/2017/01/badge_grau.png');
-    background-repeat: no-repeat;
-    background-size: contain;
     text-align: center;
-    padding: 50px 0;
+    padding: 30px 0;
+}
+.author-badge.grau{
+    background: url('/wp-content/themes/rw-materialpool-theme/assets/grau.png') no-repeat;
+    background-size: contain;
+
+}
+.author-badge.gruen{
+    background: url('/wp-content/themes/rw-materialpool-theme/assets/gruen.png') no-repeat;
+    background-size: contain;
+
+}
+.author-badge.gold{
+    background: url('/wp-content/themes/rw-materialpool-theme/assets/gold.png') no-repeat;
+    background-size: contain;
+
 }
 
 .autor-content {
@@ -178,6 +190,17 @@ div.material-detail-image, .material-detail .materialpool-template-material-pict
     margin-bottom: 20px;
 }
  /* description column items */
+.facet-treffer.alpika{
+    background: lightyellow url('/wp-content/plugins/rw-materialpool//assets/alpika.png') no-repeat right top;
+    padding-bottom: 5px;
+    border: 1px solid #FEDFB2;
+}
+.facet-treffer.special{
+    background:#ffee99;
+    border: 1px solid #FEDFB2;
+    padding-bottom: 5px;
+}
+
 .material-links, .material-desc {
     margin-bottom: 30px;
 }
@@ -480,6 +503,7 @@ div.facet-treffer div.facet-treffer-mediatyps{
 
 .facet-rating {
     float: right;
+    padding-top: 30px;
 }
 
 

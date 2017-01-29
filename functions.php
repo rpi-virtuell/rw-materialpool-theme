@@ -71,3 +71,12 @@ function facetwp_query_args_material_verweise( $query_args, $class ) {
     return $query_args;
 }
 add_filter( 'facetwp_query_args', 'facetwp_query_args_material_verweise', 10, 2 );
+
+function my_facetwp_facet_html( $output, $params ) {
+    if ( 'alpika' == $params['facet']['name'] ) {
+        $output = str_replace('>1 <','>aus den Instituten <',$output);
+    }
+    return $output;
+}
+
+add_filter( 'facetwp_facet_html', 'my_facetwp_facet_html', 10, 2 );

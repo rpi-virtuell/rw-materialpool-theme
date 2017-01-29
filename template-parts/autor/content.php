@@ -74,15 +74,29 @@ if ( ! defined( 'ABSPATH' ) ) {
         </div>
         <div class="autor-right material-meta-container">
             <div class="material-detail-meta-author material-meta">
-                <h4>Organisationen</h4>
+                <h4>Wirkungsbereich</h4>
                     <?php Materialpool_Autor::organisation_html_cover(); ?>
             </div>
-            <?php if(Materialpool_Autor::get_count_posts_per_autor()>4):?>
+            <?php if(($n=Materialpool_Autor::get_count_posts_per_autor())>4):?>
+                <?php
+                    if($n>=5){
+                        $badgeclass='grau';
+                        $badgetitle='mindestens <br>5 Beiträge';
+                    }
+                    if($n>=20){
+                        $badgeclass='gruen';
+                        $badgetitle='<b>'.$n.'</b><br>Praxisbeiträge';
+                    }
+                    if($n>100){
+                        $badgeclass='gold';
+                        $badgetitle='<b>über 100</b><br>Praxisbeiträge';
+                    }
+                ?>
             <div class="autor-right badges material-meta">
                 <h4>Auszeichnungen</h4>
-                <div class="author-badge <?php if(Materialpool_Autor::get_count_posts_per_autor()>4) echo 'grau' ;?>">
-                    5+ Materialien<br>
-                    bei rpi-virtuell
+                <div class="author-badge <?php echo $badgeclass ;?>">
+                    <?php echo $badgetitle ;?><br>
+                    im Materialpool
                 </div>
 
             </div>
