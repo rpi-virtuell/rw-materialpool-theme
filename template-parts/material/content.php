@@ -67,7 +67,7 @@
                 <?php Materialpool_Material::shortdescription(); ?>
             </div>
             <div class="material-detail-description material-desc">
-                <?php Materialpool_Material::description(); ?>
+                <?php echo do_shortcode(Materialpool_Material::get_description()); ?>
             </div>
             <div class="material-detail-description-footer material-desc">
                 <?php Materialpool_Material::description_footer(); ?>

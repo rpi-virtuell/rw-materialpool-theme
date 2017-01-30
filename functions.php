@@ -80,3 +80,63 @@ function my_facetwp_facet_html( $output, $params ) {
 }
 
 add_filter( 'facetwp_facet_html', 'my_facetwp_facet_html', 10, 2 );
+
+
+/*add accordeons to [accordion].<h3>..[/accordion] shortcode*/
+
+function enqueue_required_jquery_scripts(){
+    wp_enqueue_style('accordion', "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
+    wp_enqueue_script( 'jquery-ui', '//code.jquery.com/ui/1.12.1/jquery-ui.js', array (), 1.1, true);
+}
+add_action('wp_enqueue_scripts','enqueue_required_jquery_scripts');
+
+
+function add_h3_accordion($description, $post){
+    if ( is_single()){
+
+        $acn_content = '';
+
+        preg_match_all('/\[accordion\].*\[\/accordion\]/es',$description,$accs);
+
+        for($a=0; $a<count($accs);$a++){
+
+            $acc_content = $accs[0][$a];
+
+
+            $acn_content = str_replace('</h3>','</h3><div>',$acc_content);
+            $acn_content = str_replace('<h3','</div><h3',$acn_content);
+
+            $start = strpos($acn_content,'<h3');
+
+            $acn_content = '<div class="accordion">'.substr($acn_content,$start).'</div></div>';
+
+            $acn_content = str_replace('[accordion]','',$acn_content);
+            $acn_content = str_replace('[/accordion]','',$acn_content);
+
+
+            $description= str_replace($acc_content,$acn_content,$description);
+
+
+        }
+
+        if(count($accs)>0){
+
+            $description .= "
+             <script>
+                  jQuery( function() {
+                    jQuery( '.accordion' ).accordion({
+                      collapsible: true,
+                      heightStyle: 'content',
+                      active:false,
+                      header:'h3'
+                    });
+                  } );
+             </script>
+            
+            ";
+
+        }
+    }
+    return $description;
+}
+add_filter( 'materialpool_material_description',add_h3_accordion, 10 ,2 );
