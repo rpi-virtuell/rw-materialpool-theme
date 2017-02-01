@@ -72,6 +72,20 @@ function facetwp_query_args_material_verweise( $query_args, $class ) {
 }
 add_filter( 'facetwp_query_args', 'facetwp_query_args_material_verweise', 10, 2 );
 
+
+
+function facetwp_query_args_themenseiten( $query_args, $class ) {
+    global $post;
+    global $themenseite_material_id_list;
+    if ($post->post_type == "themenseite" && !is_embed() ){
+        $query_args['post__in'] = $themenseite_material_id_list;
+    }
+    return $query_args;
+}
+add_filter( 'facetwp_query_args', 'facetwp_query_args_themenseiten', 10, 2 );
+
+
+
 function my_facetwp_facet_html( $output, $params ) {
     if ( 'alpika' == $params['facet']['name'] ) {
         $output = str_replace('>1 <','>aus den Instituten <',$output);
