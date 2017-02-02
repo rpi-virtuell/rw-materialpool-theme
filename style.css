@@ -164,6 +164,18 @@ div.material-column h4{
     font-weight: bolder;
 }
 
+div.material-column h1,
+div.accordion h1,
+div.material-column h2,
+div.accordion h2{
+    font-weight: 300;
+    color: #333;
+    font-family: 'Cairo','Open Sans', sans-serifbody;
+}
+.ui-accordion-header.ui-state-active{
+    background-color: #337A9A;
+}
+
 .material-detail-left {
     flex: 0 35%;
 }
