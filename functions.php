@@ -109,7 +109,7 @@ function add_h3_accordion($description, $post){
     if ( is_single()){
 
         $acn_content = '';
-
+/*
         preg_match_all('/\[accordion\].*\[\/accordion\]/es',$description,$accs);
 
         for($a=0; $a<count($accs);$a++){
@@ -122,18 +122,23 @@ function add_h3_accordion($description, $post){
 
             $start = strpos($acn_content,'<h3');
 
-            $acn_content = '<div class="accordion">'.substr($acn_content,$start).'</div></div>';
-
-            $acn_content = str_replace('[accordion]','',$acn_content);
-            $acn_content = str_replace('[/accordion]','',$acn_content);
-
+            //$acn_content = '<div class="accordion">'.substr($acn_content,$start).'</div></div>';
+            $acn_content = substr($acn_content,$start).'</div>';
 
             $description= str_replace($acc_content,$acn_content,$description);
 
 
         }
+*/
+        $description = str_replace('</h3>','</h3><div>',$description);
+        $description = str_replace('<h3','</div><h3',$description);
 
-        if(count($accs)>0){
+
+        $description = preg_replace('/<p>\[accordion\]<\/p>\W*<\/div><h3/','</div><div class="accordion"><h3',$description);
+        $description = str_replace('<p>[/accordion]</p>','</div>',$description);
+        $description = '<div>'.$description  .'</div>';
+
+        //if(count($accs)>0){
 
             $description .= "
              <script>
@@ -149,7 +154,7 @@ function add_h3_accordion($description, $post){
             
             ";
 
-        }
+        //}
     }
     return $description;
 }
