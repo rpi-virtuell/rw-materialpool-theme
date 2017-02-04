@@ -15,7 +15,9 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 
 if ( !function_exists( 'load_rw_materialpool_js' ) ):
     function load_rw_materialpool_js() {
-        wp_enqueue_script( 'load_rw_materialpool_js', get_stylesheet_directory_uri() . '/js/facet_labels.js', array (), 0.1, true);
+        wp_enqueue_script( 'load_rw_facet_js', get_stylesheet_directory_uri() . '/js/facet_labels.js', array (), 0.1, true);
+        wp_enqueue_script( 'load_rw_masonry_js', get_stylesheet_directory_uri() . '/js/masonry.js', array (), 0.1, true);
+        wp_enqueue_script( 'load_rw_materialpool_js', get_stylesheet_directory_uri() . '/js/materialpool.js', array (), 0.1, true);
     }
 endif;
 add_action( 'wp_enqueue_scripts', 'load_rw_materialpool_js', 10 );
@@ -101,6 +103,7 @@ add_filter( 'facetwp_facet_html', 'my_facetwp_facet_html', 10, 2 );
 function enqueue_required_jquery_scripts(){
     wp_enqueue_style('accordion', "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
     wp_enqueue_script( 'jquery-ui', '//code.jquery.com/ui/1.12.1/jquery-ui.js', array (), 1.1, true);
+
 }
 add_action('wp_enqueue_scripts','enqueue_required_jquery_scripts');
 
@@ -135,6 +138,7 @@ function add_h3_accordion($description, $post){
 
 
         $description = preg_replace('/<p>\[accordion\]<\/p>\W*<\/div><h3/','</div><div class="accordion"><h3',$description);
+        $description = preg_replace('/<p>\[accordion\]<\/p>/','',$description);
         $description = str_replace('<p>[/accordion]</p>','</div>',$description);
         $description = '<div>'.$description  .'</div>';
 

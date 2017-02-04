@@ -32,11 +32,32 @@ a {
 
 .single-material div#primary.content-area,
 .single-autor div#primary.content-area,
+.single-themenseite div#primary.content-area,
 .single-organisation div#primary.content-area
 {
     width: 100% !important;
 }
 
+/* single-themenseite  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+div.themenseite-gruppe h3{
+    display: block;
+    background-color: #337A9A;
+    color: white;
+}
+
+div.themenseite-gruppe .material-results{
+    margin-bottom:50px;
+}
+
+.themenseite-gruppe .facet-treffer{
+    width:350px;
+    border: 1px solid #ddd;
+}
+
+.themenseite-gruppe img.materialpool-template-material-picture-facet{
+    max-width: initial;
+}
 
 /* single organisation ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
@@ -359,7 +380,7 @@ div.facet-treffer-mediatyps{
 
 /* material list +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-/* facetsearch */
+/* facetsearch*/
 .blog:not(.has-sidebar) #primary article, .archive:not(.page-one-column):not(.has-sidebar) #primary article, .search:not(.has-sidebar) #primary article, .error404:not(.has-sidebar) #primary .page-content, .error404.has-sidebar #primary .page-content, body.page-two-column:not(.archive) #primary .entry-content, body.page-two-column #comments {
     width: 100%;
 }
@@ -372,6 +393,30 @@ div.facet-treffer-mediatyps{
     display: none;
 }
 
+/* material columns layout  */
+.entry-content.material-facet-search {
+    display: flex;
+    flex-flow: nowrap;
+    min-width: 400px;
+
+}
+/** Facetten Column  */
+.entry-content.material-facet-search .material-facetscontainer{
+    flex: 0 250px;
+    background-color: #666965;
+    margin-right:3%;
+}
+/** Ergebnisse Column  */
+.entry-content.material-facet-search .material-resultcontainer{
+    flex: 1;
+}
+
+.material-facetscontainer *{
+    color:white!important;
+}
+.material-facetscontainer .mfacet-wrap{
+    margin: 5px;
+}
 
 /** Suchfeld  */
 div.material-suche{
@@ -423,24 +468,6 @@ div.material-suche .facetwp-btn:hover{
 .material-pager div.facetwp-pager{
     float: right;
     display: inline;
-}
-
-/** Facetten Column  */
-.material-facetscontainer{
-    background-color: #666965;
-    float: left;
-    width: 27%;
-    min-width: 220px;
-    margin-right:3%;
-}
-.material-facetscontainer *{
-    color:white!important;
-}
-.material-facetscontainer .mfacet-wrap{
-    margin: 5px;
-}
-.material-resultcontainer{
-    float: left; width: 70%;
 }
 
 

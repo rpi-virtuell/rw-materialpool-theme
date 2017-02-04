@@ -34,7 +34,7 @@ global $themenseite_material_id_list;
                     <h3><?php echo $gruppe[ 'gruppe' ]; ?></h3>
                     <p><?php echo do_shortcode( $gruppe[ 'gruppenbeschreibung' ] ); ?></p>
                     <?php $themenseite_material_id_list = explode( ',', $gruppe[ 'auswahl'] ); ?>
-                    <div class="material-results"><?php echo facetwp_display( 'template', 'example' ); ?></div>
+                    <div class="material-results"><?php echo facetwp_display( 'template', 'thema' ); ?></div>
                 </div>
             <?php } ?>
         </div>
