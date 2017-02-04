@@ -27,8 +27,11 @@ global $themenseite_material_id_list;
 
         <div class="material-detail-content-viewer material-column">
 
-            <?php the_content(); ?>
+            <header class="thema-header">
+                <div class="thema-facets"><?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?></div>
+                <div class="thema-description"><?php the_content(); ?></div>
 
+            </header>
             <?php foreach ( Materialpool_Themenseite::get_gruppen() as $gruppe ) { ?>
                 <div class="themenseite-gruppe material-column">
                     <h3><?php echo $gruppe[ 'gruppe' ]; ?></h3>

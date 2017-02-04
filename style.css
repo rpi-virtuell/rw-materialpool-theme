@@ -48,15 +48,42 @@ div.themenseite-gruppe h3{
 
 div.themenseite-gruppe .material-results{
     margin-bottom:50px;
+    padding: 0;
+    -moz-column-gap: 1.5em;
+    -webkit-column-gap: 1.5em;
+    column-gap: 1.5em;
+    font-size: .85em;
+    column-count: 3;
 }
 
 .themenseite-gruppe .facet-treffer{
-    width:350px;
+
     border: 1px solid #ddd;
+    display: inline-block;
+    background: #fff;
+    padding: 1em;
+    margin: 0 0 1.5em;
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-shadow: 2px 2px 4px 0 #ccc;
 }
 
 .themenseite-gruppe img.materialpool-template-material-picture-facet{
-    max-width: initial;
+
+}
+
+.thema-header{
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 400px;
+}
+.thema-description{
+    flex:1;
+}
+.thema-facets{
+    flex:0 200px;
 }
 
 /* single organisation ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -501,7 +528,8 @@ div.material-suche .facetwp-btn:hover{
     color: #2E89C1;
 }
 
-.facet-treffer-content {
+.page-template-suche .facet-treffer-content {
+
     float: left;
     width: 90%;
 }
@@ -602,8 +630,11 @@ div.facet-treffer div.facet-treffer-mediatyps{
     padding-bottom: 10px;
 }
 
-search-description {
-
+.material-cover {
+    height:150px;
+    overflow: hidden;
+    border:1px solid #ddd;
+    background-color: #ddd;
 }
 
 .icon-rot {
