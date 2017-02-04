@@ -163,3 +163,13 @@ function add_h3_accordion($description, $post){
     return $description;
 }
 add_filter( 'materialpool_material_description',add_h3_accordion, 10 ,2 );
+
+function frontend_ajax() {
+    echo '<script type = "text/javascript" >';
+    echo 'var ajaxurl = "'. admin_url('admin-ajax.php') . '"' ;
+    echo '</script >';
+}
+
+if ( !is_admin() ) {
+    add_action( 'wp_head', 'frontend_ajax');
+}
