@@ -16,6 +16,7 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 if ( !function_exists( 'load_rw_materialpool_js' ) ):
     function load_rw_materialpool_js() {
         wp_enqueue_script( 'load_rw_facet_js', get_stylesheet_directory_uri() . '/js/facet_labels.js', array (), 0.1, true);
+        wp_enqueue_script( 'load_toc_js', get_stylesheet_directory_uri() . '/js/jquery.toc.js', array (), 0.1, true);
         wp_enqueue_script( 'load_rw_materialpool_js', get_stylesheet_directory_uri() . '/js/materialpool.js', array (), 0.1, true);
     }
 endif;
@@ -81,12 +82,11 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
 
 
     if (defined('DOING_AJAX') && DOING_AJAX) {
-
-
         $material_id_list = array();
 
         if ('thema' == $class->ajax_params['template']) {
             $themenseite =  get_page_by_path( str_replace('themenseite/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'themenseite' );
+
         }
         foreach(Materialpool_Themenseite::get_gruppen($themenseite->ID) as $gruppe){
             $id_list = explode( ',', $gruppe[ 'auswahl'] );
@@ -94,6 +94,7 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
         }
 
         $query_args['post__in'] = $material_id_list;
+
 
     }elseif ($post->post_type == "themenseite" && !is_embed() ){
         $query_args['post__in'] = $themenseite_material_id_list;

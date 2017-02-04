@@ -69,9 +69,9 @@ div.themenseite-gruppe .material-results{
     -webkit-box-sizing: border-box;
     box-shadow: 2px 2px 4px 0 #ccc;
 }
-
-.themenseite-gruppe img.materialpool-template-material-picture-facet{
-
+.themenseite-gruppe h3 a{
+    color: #ffffff !important;
+    margin: 0 20px;
 }
 
 .thema-header{
@@ -83,9 +83,11 @@ div.themenseite-gruppe .material-results{
     flex:1;
 }
 .thema-facets{
-    flex:0 200px;
+    flex:0 250px;
 }
-
+.thema-toc{
+    margin-left: 20px;
+}
 /* single organisation ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 .entry-content.organisation {

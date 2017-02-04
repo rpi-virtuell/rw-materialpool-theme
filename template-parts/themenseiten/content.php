@@ -28,16 +28,21 @@ global $themenseite_material_id_list;
         <div class="material-detail-content-viewer material-column">
 
             <header class="thema-header">
-                <div class="thema-facets"><?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?></div>
+                <div class="thema-facets">
+                    <?php echo facetwp_display( 'facet', 'bildungsstufen_themenseite' ); ?>
+                    <div id="thema-toc" class="thema-toc"></div>
+                </div>
                 <div class="thema-description"><?php the_content(); ?></div>
 
+
             </header>
-            <?php foreach ( Materialpool_Themenseite::get_gruppen() as $gruppe ) { ?>
+                <?php foreach ( Materialpool_Themenseite::get_gruppen() as $gruppe ) { ?>
                 <div class="themenseite-gruppe material-column">
                     <h3><?php echo $gruppe[ 'gruppe' ]; ?></h3>
                     <p><?php echo do_shortcode( $gruppe[ 'gruppenbeschreibung' ] ); ?></p>
                     <?php $themenseite_material_id_list = explode( ',', $gruppe[ 'auswahl'] ); ?>
                     <div class="material-results"><?php echo facetwp_display( 'template', 'thema' ); ?></div>
+
                 </div>
             <?php } ?>
         </div>
