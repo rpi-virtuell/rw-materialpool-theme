@@ -15,46 +15,45 @@ global $post;
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
 
-
                 <div class="startseite-block-header">
-                    <P>Aktuell</P>
+                    <p>Herzlich Willkommen im neuen Materialpool</p>
                     <div class="startseite-block-content">
-                        Auflistung Aktueller Materialien (Redaktionsauswahl)
-                    </div>
-                </div>
-                <div class="startseite-block-header">
-                    <P>Neues Material</P>
-                    <div class="startseite-block-content">
-                        Auflistung neuer Materialien.
-                    </div>
-                </div>
-                <div class="startseite-block-header">
-                    <P>Freies Material</P>
-                    <div class="startseite-block-content">
-                        Auflistung freier Materialien
-                    </div>
-                </div>
-                <div class="startseite-block-header">
-                    <p>Freitext</p>
-                    <div class="startseite-block-content">
-                    <?php
+                        <?php
                         $freitext = get_metadata( 'post', $post->ID, 'startseite_freitext', true );
                         echo do_shortcode( $freitext );
-                    ?>
+                        ?>
                     </div>
                 </div>
+
+                <div class="clear"></div>
                 <div class="startseite-block-header">
-                    <P>Dienste RPI</P>
-                    <div class="startseite-block-content">
-                        Die RPI Dienste
+                    <p>Aktuell</p>
+                    <div class="startseite-block-content material-results">
+                        <?php echo facetwp_display( 'template', 'startseite_aktuell' ); ?>
                     </div>
                 </div>
+                <div class="clear"></div>
                 <div class="startseite-block-header">
-                    <P>Specials</P>
-                    <div class="startseite-block-content">
-                        Die neuesten Specials
+                    <P>Neu im Materialpool</P>
+                    <div class="startseite-block-content  material-results">
+                       <?php echo facetwp_display( 'template', 'startseite_neue_materialien' ); ?>
                     </div>
                 </div>
+                <div class="clear"></div>
+                <div class="startseite-block-header">
+                    <P>Frei lizensierte Bildungsmedien (OER)</P>
+                    <div class="startseite-block-content  material-results">
+                        <?php echo facetwp_display( 'template', 'startseite_oer' ); ?>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="startseite-block-header">
+                    <p>Specials</p>
+                    <div class="startseite-block-content material-results">
+                        <?php echo facetwp_display( 'template', 'startseite_specials' ); ?>
+                    </div>
+                </div>
+                <div class="clear"></div>
                 <div class="startseite-block-header">
                     <p>Über uns</p>
                     <div class="startseite-block-content">
@@ -64,9 +63,11 @@ global $post;
                         ?>
                     </div>
                 </div>
+                <div class="clear"></div>
 
             </main><!-- #main -->
         </div><!-- #primary -->
+        <div id="secondary" style="display: none"></div>
     </div><!-- .wrap -->
 
 <?php get_footer();

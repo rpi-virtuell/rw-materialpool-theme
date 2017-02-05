@@ -70,6 +70,7 @@ get_header( 'materialpool' ); ?>
                 </div>
             </main>
         </div>
+        <div id="secondary" style="display: none"></div>
     </div>
 <?php get_footer();
 

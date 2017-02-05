@@ -39,7 +39,7 @@ get_header( 'materialpool' ); ?>
 
         </main><!-- #main -->
     </div><!-- #primary -->
-
+    <div id="secondary" style="display: none"></div>
 </div><!-- .wrap -->
 
 <?php get_footer();
