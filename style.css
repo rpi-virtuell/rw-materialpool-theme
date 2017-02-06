@@ -19,9 +19,16 @@ body {
 .site-content-contain{
     background-image: repeating-linear-gradient(to top, #bbb, #eee);
 }
+
 .content-area{
     background-color: #eee;
 }
+
+
+.content-area ul{
+    margin-left:20px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     line-height: normal;
 }
@@ -52,6 +59,7 @@ a {
 .single-organisation div#primary.content-area
 {
     width: 100% !important;
+    padding: 0 20px 0 30px;
 }
 /* archive-themenseiten  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 .themenseite-entry{
@@ -88,6 +96,8 @@ span.thema-title a{
     -webkit-column-gap: 1.5em;
     column-gap: 1.5em;
     text-align: center;
+    max-height: 100%;
+    overflow: hidden;
 }
 .home .material-results img.materialpool-template-material-picture-facet{
     padding: 10px;
@@ -163,7 +173,6 @@ span.thema-title a{
         column-count: 4;
     }
 }
-
 
 .themenseite-gruppe .facet-treffer{
 
@@ -338,7 +347,10 @@ div.accordion h2{
     font-family: 'Cairo','Open Sans', sans-serifbody;
 }
 .ui-accordion-header.ui-state-active{
-    background-color: #337A9A;
+    background-color: #2E89C1;
+}
+.ui-accordion-header.ui-state-active a{
+    color: #ffffff;
 }
 
 .material-detail-left {
@@ -536,7 +548,6 @@ div.material-detail-meta-rating{
     font-family: 'Cairo','Open Sans',  sans-serif;
     font-size: 30px;
     font-weight: 300;
-    min-height: 5em;
     color: white;
     margin: 20px 0;
     padding:10px 20px;
@@ -547,6 +558,8 @@ div.material-detail-meta-rating{
     margin: 0 0 0 0;
     background-color: #2E89C1;
     padding:10px 20px;
+    box-shadow: 2px 2px 4px 0 #ccc;
+    margin-bottom: 5px;
 }
 
 .startseite-block-content {
@@ -558,8 +571,6 @@ div.material-detail-meta-rating{
 
 /*header-bild*/
 .custom-header-media {
-    top: -324px!important;
-
 }
 
 /* material list +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -806,3 +817,17 @@ body.page-template-suche div.facet-treffer div.facet-treffer-mediatyps{
     max-width: 200px;
 }
 
+/** chrome probleme **/
+
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 600px)
+{
+    .home .material-results,
+    .themenseite-gruppe .material-results {
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+    .material-cover {
+        height: 200px;
+        padding: 0 84px;
+    }
+}

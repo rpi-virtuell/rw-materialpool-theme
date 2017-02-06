@@ -37,6 +37,8 @@ jQuery(document).ready(function ($) {
 
     });
 
+    jQuery('.rw-search-wrapper input#s').attr('name','fwp_suche');
+    jQuery('.rpi-center-col form').attr('action','/facettierte-suche/')
 
 });
 
