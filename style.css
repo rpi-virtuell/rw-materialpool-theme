@@ -11,6 +11,12 @@ Version: 1.0.1483523464
 
 @import url('https://fonts.googleapis.com/css?family=Cairo:300,400,700|Open+Sans:400,700');
 
+@media screen and (min-width: 48em)
+{
+    .navigation-top {
+        font-size: 1.0rem;
+    }
+}
 
 body {
     font-family: 'Cairo','Open Sans',  sans-serif;
@@ -511,7 +517,7 @@ div.material-detail-meta-rating{
     width: 100%;
     opacity: 0;
 }
-.materialpool-template-material-autor-logo {
+a.materialpool-template-material-autor-logo {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -520,6 +526,9 @@ div.material-detail-meta-rating{
     background-clip: padding-box;
     background-color: linen;
     border: 1px solid lightsteelblue;
+}
+img.materialpool-template-material-autor-logo{
+    opacity: 0;
 }
 .material-detail-meta-author div{
     margin-bottom: 20px;
