@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Suche
+ * Template Name: Suche altes Material
  * Template Post Type: page
  *
  * @version 1.0
@@ -25,24 +25,6 @@ get_header( 'materialpool' ); ?>
                                         <div class="first-search-facets">
                                             <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
                                             <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'alpika' ); ?>
-
-                                        </div>
-                                        <div class="second-search-facets">
-                                            <?php echo facetwp_display( 'facet', 'schlagworte' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'inklusion' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'organisation' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'autor' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'lizenz' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'sprache' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'verfuegbarkeit' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'zugaenglichkeit' ); ?>
-
-                                        </div>
-                                        <div class="advanced-search-facets" style="display:none">
-                                            <?php echo facetwp_display( 'facet', 'erscheinungsjahr' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'erfassungsdatum' ); ?>
-                                            <?php echo facetwp_display( 'facet', 'bewertung' ); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -59,13 +41,9 @@ get_header( 'materialpool' ); ?>
                                         <div class="material-pager">
                                             <?php echo facetwp_display( 'pager' ); ?>
                                         </div>
-
                                     </div>
                                     <div class="clear"></div>
-                                    <div class="material-old">
-                                        <?php echo facetwp_display( 'facet', 'test' ); ?>
-                                    </div>
-                                    <div class="material-results"><?php echo facetwp_display( 'template', 'example' ); ?></div>
+                                    <div class="material-results"><?php echo facetwp_display( 'template', 'materialalt' ); ?></div>
                                     <div class="material-pager"><?php echo facetwp_display( 'pager' ); ?></div>
                                 </div>
                             </div>

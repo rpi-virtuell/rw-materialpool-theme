@@ -626,6 +626,9 @@ div.material-suche{
 h5.facet-label.suche{
     display:none;
 }
+h5.facet-label.test{
+    display:none !important;
+}
 div.facetwp-facet-suche {
     margin: 0;
     width: 100%;
