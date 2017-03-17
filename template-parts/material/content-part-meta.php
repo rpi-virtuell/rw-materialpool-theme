@@ -32,14 +32,14 @@
 <div class="material-meta" style="clear: both;height:10px;"></div>
 
 <div class="material-detail-meta-author material-meta">
-    <?php if(Materialpool_Material::get_organisation()[0] || Materialpool_Material::get_autor()[0]): ?>
+    <?php if(Materialpool_Material::has_organisation() || Materialpool_Material::has_autor() ): ?>
         <h4>Herkunft</h4>
         <div class="material-meta-content-entry">
 
-        <?php if(Materialpool_Material::get_organisation()[0]): ?>
+        <?php if(Materialpool_Material::has_organisation()): ?>
             <?php Materialpool_Material::organisation_html_cover(); ?>
         <?php endif;?>
-        <?php if(Materialpool_Material::get_autor()[0]):?>
+        <?php if( Materialpool_Material::has_autor() ):?>
             <?php Materialpool_Material::autor_html_picture(); ?>
         <?php endif;?>
         </div>
