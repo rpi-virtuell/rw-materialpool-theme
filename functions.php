@@ -30,9 +30,8 @@ add_action('wp_enqueue_scripts','enqueue_our_required_stylesheets');
 function facetwp_query_args_autor( $query_args, $class ) {
     global $post;
 
-
-    if (defined('DOING_AJAX') && DOING_AJAX) {
-        if ( 'material_autor' == $class->ajax_params['template'] ) {
+    if ( defined('REST_REQUEST') && REST_REQUEST ) {
+          if ( 'material_autor' == $class->ajax_params['template'] ) {
             $autor =  get_page_by_path( str_replace('autor/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'autor' );
             $query_args['meta_query'][0][ 'value'] = (string)$autor->ID;
         }
@@ -41,6 +40,7 @@ function facetwp_query_args_autor( $query_args, $class ) {
             $query_args['meta_query'][0][ 'value'] = (string)$post->ID;
         }
     }
+
     return $query_args;
 }
 
@@ -48,7 +48,7 @@ add_filter( 'facetwp_query_args', 'facetwp_query_args_autor', 10, 2 );
 
 function facetwp_query_args_organisation( $query_args, $class ) {
 
-    if (defined('DOING_AJAX') && DOING_AJAX) {
+    if (defined('REST_REQUEST') && REST_REQUEST) {
 
         if ('material_organisation' == $class->ajax_params['template']) {
             $organisation =  get_page_by_path( str_replace('organisation/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'organisation' );
