@@ -81,22 +81,24 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
     global $themenseite_material_id_list;
 
 
-    if (defined('DOING_AJAX') && DOING_AJAX) {
+    if (defined('REST_REQUEST') && REST_REQUEST) {
         $material_id_list = array();
+
 
         if ('thema' == $class->ajax_params['template']) {
             $themenseite =  get_page_by_path( str_replace('themenseite/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'themenseite' );
 
-        }
-        foreach(Materialpool_Themenseite::get_gruppen($themenseite->ID) as $gruppe){
-            $id_list = explode( ',', $gruppe[ 'auswahl'] );
-            $material_id_list = array_merge($material_id_list, $id_list);
-        }
 
-        $query_args['post__in'] = $material_id_list;
+            foreach(Materialpool_Themenseite::get_gruppen($themenseite->ID) as $gruppe){
+                $id_list = explode( ',', $gruppe[ 'auswahl'] );
+                $material_id_list = array_merge($material_id_list, $id_list);
+            }
 
+            $query_args['post__in'] = $material_id_list;
+        }
 
     }elseif ($post->post_type == "themenseite" && !is_embed() ){
+        //var_dump($themenseite_material_id_list);
         $query_args['post__in'] = $themenseite_material_id_list;
     }
 
