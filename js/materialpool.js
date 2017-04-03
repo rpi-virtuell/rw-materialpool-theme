@@ -41,10 +41,10 @@ jQuery(document).ready(function ($) {
     jQuery('.rpi-center-col form').attr('action','/facettierte-suche/');
 	
 	jQuery( document ).ajaxStart(function() {
-		jQuery('.facetwp-btn').addClass('facetwp-loading');
+		jQuery('#page-loader').addClass('facetwp-loading');
 	});
 	jQuery( document ).ajaxComplete(function() {
-		jQuery('.facetwp-btn').removeClass('facetwp-loading');
+		jQuery('#page-loader').removeClass('facetwp-loading');
 		console.log('ready');   
 	});
 
