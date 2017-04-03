@@ -38,7 +38,15 @@ jQuery(document).ready(function ($) {
     });
 
     jQuery('.rw-search-wrapper input#s').attr('name','fwp_suche');
-    jQuery('.rpi-center-col form').attr('action','/facettierte-suche/')
+    jQuery('.rpi-center-col form').attr('action','/facettierte-suche/');
+	
+	jQuery( document ).ajaxStart(function() {
+		jQuery('.facetwp-btn').addClass('facetwp-loading');
+	});
+	jQuery( document ).ajaxComplete(function() {
+		jQuery('.facetwp-btn').removeClass('facetwp-loading');
+		console.log('ready');   
+	});
 
 });
 

@@ -598,7 +598,7 @@ img.materialpool-template-material-autor-logo{
 .entry-content.material-facet-search {
     display: flex;
     flex-flow: nowrap;
-    min-width: 400px;
+    min-width: 300px;
 
 }
 /** Facetten Column  */
@@ -829,6 +829,32 @@ body.page-template-suche div.facet-treffer div.facet-treffer-mediatyps{
     max-width: 200px;
 }
 
+
+@media all and (max-width: 600px) {
+    .wrap{
+        padding:0 0 0 2px;
+    }
+    .material-facetscontainer{
+        display:none;
+    }
+    input[type="text"].facetwp-search{
+        width:auto;
+
+    }
+    .facetwp-search-wrap i.facetwp-btn{
+        margin-right: 0px;
+    }
+    body.page-template-suche div.facet-treffer div.facet-treffer-mediatyps{
+        width:auto;
+        padding: 0;
+        margin: 0;
+    }
+    .material-pager, .material-pager div.facetwp-pager{
+        width: 100%;
+        float: left;
+    }
+}
+
 /** chrome probleme **/
 
 @media screen and (-webkit-min-device-pixel-ratio:0) and (min-width: 600px)
@@ -843,3 +869,5 @@ body.page-template-suche div.facet-treffer div.facet-treffer-mediatyps{
         padding: 0 84px;
     }
 }
+
+
