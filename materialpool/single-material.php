@@ -23,7 +23,7 @@ get_header( 'materialpool' ); ?>
             <?php
             /* Start the Loop */
             while ( have_posts() ) : the_post();
-                if ( ! Materialpool_Material::is_special() &&  ! Materialpool_Material::is_viewer()  &&  ! Materialpool_Material::is_embed()  ) {
+                if ( ! Materialpool_Material::is_special() &&  ! Materialpool_Material::is_viewer()    ) {
                     get_template_part('template-parts/material/content', get_post_format());
                 }else{
                     get_template_part('template-parts/material/content-special', get_post_format());
