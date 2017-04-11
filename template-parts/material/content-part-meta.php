@@ -60,7 +60,7 @@
         </div>
     <?php endif; ?>
 </div>
-<?php if(!Materialpool_Material::is_special()):?>
+<?php if(!Materialpool_Material::is_special() && Materialpool_Material::availability() != ''): ?>
     <div class="material-detail-meta-access material-meta">
         <h4>Verfügbarkeit</h4>
         <div class="material-meta-content-entry">
