@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php
         if ( 'organisation' === get_post_type() ) :
             if ( is_single() ) {
-                ?><h1 class="entry-title">Materialien von <?php Materialpool_Organisation::title();?> </h1><?php
+                ?><h1 class="entry-title"><?php Materialpool_Organisation::title();?> </h1><?php
             } else {
                 the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
             }
