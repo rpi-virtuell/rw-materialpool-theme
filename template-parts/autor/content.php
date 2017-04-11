@@ -31,9 +31,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         <div class="autor-left">
             <?php if(Materialpool_Autor::get_picture()):?>
-                <div class="autor-image">
+                <div class="autor-image" >
                     <?php Materialpool_Autor::picture_html(); ?><br>
                     <?php Materialpool_Autor::firstname();?> <?php Materialpool_Autor::lastname();?>
+                    <?php if ( Materialpool_Autor::get_picture() != '' ) { ?>
+                    <br><p style="font-size: 0.8em; max-width: 200px; word-wrap:break-word;">Bildquelle: <?php echo Materialpool_Autor::get_picture(); ?></p>
+                    <?php } ?>
                 </div>
             <?php else:?>
                 <h3 class="image-alt">
