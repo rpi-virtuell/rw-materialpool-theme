@@ -182,7 +182,7 @@ function add_h3_accordion($description, $post){
     }
     return $description;
 }
-add_filter( 'materialpool_material_description',add_h3_accordion, 10 ,2 );
+add_filter( 'materialpool_material_description','add_h3_accordion', 10 ,2 );
 
 function frontend_ajax() {
     echo '<script type = "text/javascript" >';
