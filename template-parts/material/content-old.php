@@ -73,7 +73,21 @@
 
 
         <div class="material-detail-right material-meta-container material-column">
-            <?php  get_template_part('template-parts/material/content-part-meta', get_post_format()); ?>
+            <div class="facet-treffer-mediatyps material-meta">
+                <?php $type = Materialpool_Material::get_mediatyps_root();
+                foreach ( $type as $val ) {
+                    ?>
+
+                    <span title="<?php echo $val[ 'name' ]; ?>" class="fa-stack fa-2x">
+            <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
+            <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
+        </span>
+
+                <?php } ?>
+            </div>
+            <div class="material-detail-meta-rating material-meta">
+                <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
+            </div>
         </div>
         <footer class="material-detail-footer">
             <?php  get_template_part('template-parts/material/content-part-footer', get_post_format()); ?>
