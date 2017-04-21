@@ -182,7 +182,33 @@ function add_h3_accordion($description, $post){
     }
     return $description;
 }
-add_filter( 'materialpool_material_description','add_h3_accordion', 10 ,2 );
+//add_filter( 'materialpool_material_description','add_h3_accordion', 10 ,2 );
+
+function rw_add_accordion($atts, $content){
+
+    $description = str_replace('</h3>','</h3><div>',$content);
+    $description = str_replace('<h3>','</div><h3>',$description);
+
+
+    $html = '<div class="accordion"><div>'.$description.'</div></div>';
+    $html = str_replace('<div></div>','',$html);
+    $html .= "
+             <script>
+                  jQuery( function() {
+                    jQuery( '.accordion' ).accordion({
+                      collapsible: true,
+                      heightStyle: 'content',
+                      active:false,
+                      header:'h3'
+                    });
+                  } );
+             </script>
+            
+            ";
+    return $html;
+}
+add_shortcode( 'accordion','rw_add_accordion' );
+
 
 function frontend_ajax() {
     echo '<script type = "text/javascript" >';

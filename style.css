@@ -363,9 +363,14 @@ div.accordion h2{
 }
 .ui-accordion-header.ui-state-active{
     background-color: #2E89C1;
+    padding:0;
+    margin: 2px 0 0 0 ;
 }
 .ui-accordion-header.ui-state-active a{
     color: #ffffff;
+    background-color: inherit;
+    padding: 1.0em 1.5em 1.0em 1.7em !important;
+    font-size: 1.5em!important;
 }
 
 .material-detail-left {
