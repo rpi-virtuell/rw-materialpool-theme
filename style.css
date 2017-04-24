@@ -11,7 +11,11 @@ Version: 1.0.1483523464
 
 @import url('https://fonts.googleapis.com/css?family=Cairo:300,400,700|Open+Sans:400,700');
 
-
+@media only screen and (min-width: 400px) {
+    .site-navigation-fixed.navigation-top {
+        top: 60px;
+    }
+}
 
 .single-post:not(.has-sidebar) #primary, .page.page-one-column:not(.twentyseventeen-front-page) #primary, .archive.page-one-column:not(.has-sidebar) .page-header, .archive.page-one-column:not(.has-sidebar) #primary {
     margin-left: auto;
