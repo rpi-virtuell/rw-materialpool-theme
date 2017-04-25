@@ -127,63 +127,6 @@ function enqueue_required_jquery_scripts(){
 }
 add_action('wp_enqueue_scripts','enqueue_required_jquery_scripts');
 
-
-function add_h3_accordion($description, $post){
-    if ( is_single()){
-
-        $acn_content = '';
-/*
-        preg_match_all('/\[accordion\].*\[\/accordion\]/es',$description,$accs);
-
-        for($a=0; $a<count($accs);$a++){
-
-            $acc_content = $accs[0][$a];
-
-
-            $acn_content = str_replace('</h3>','</h3><div>',$acc_content);
-            $acn_content = str_replace('<h3','</div><h3',$acn_content);
-
-            $start = strpos($acn_content,'<h3');
-
-            //$acn_content = '<div class="accordion">'.substr($acn_content,$start).'</div></div>';
-            $acn_content = substr($acn_content,$start).'</div>';
-
-            $description= str_replace($acc_content,$acn_content,$description);
-
-
-        }
-*/
-        $description = str_replace('</h3>','</h3><div>',$description);
-        $description = str_replace('<h3','</div><h3',$description);
-
-
-        $description = preg_replace('/<p>\[accordion\]<\/p>\W*<\/div><h3/','</div><div class="accordion"><h3',$description);
-        $description = preg_replace('/<p>\[accordion\]<\/p>/','',$description);
-        $description = str_replace('<p>[/accordion]</p>','</div>',$description);
-        $description = '<div>'.$description  .'</div>';
-
-        //if(count($accs)>0){
-
-            $description .= "
-             <script>
-                  jQuery( function() {
-                    jQuery( '.accordion' ).accordion({
-                      collapsible: true,
-                      heightStyle: 'content',
-                      active:false,
-                      header:'h3'
-                    });
-                  } );
-             </script>
-            
-            ";
-
-        //}
-    }
-    return $description;
-}
-//add_filter( 'materialpool_material_description','add_h3_accordion', 10 ,2 );
-
 function rw_add_accordion($atts, $content){
 
     $description = str_replace('</h3>','</h3><div>',$content);
@@ -207,7 +150,74 @@ function rw_add_accordion($atts, $content){
             ";
     return $html;
 }
+
+function rw_add_tabs($atts, $content){
+
+    $id = 'tabs-'.generateRandomString(4);
+
+    $html = '<div id="'.$id.'"><ul>';
+
+    $pattern = '#<h5>(.*)</h5>#i';
+
+    $tabs = array();
+
+    preg_match_all($pattern, $content,$matches);
+    $i=0;
+
+
+    foreach($matches[1] as $m){
+        $i ++;
+        $tabs[$i]=$m;
+    }
+
+    $tabids=array();
+
+    foreach ($tabs as $d=>$tab){
+        $tabid = $id.$d;
+        $html .= "<li><a href=\"#".$tabid."\">".$tab."</a></li>";
+        $tabids[$d]= $tabid;
+    }
+
+    $html .= '</ul>';
+
+
+    $content = preg_replace('#<h5>(.*)</h5>#','[tab]$1',$content);
+    $parts = explode('[tab]',$content);
+
+    $i = 0;
+    foreach($parts as $part){
+        if($i>0){
+            $html .= '<div id="'.$tabids[$i].'">'.$part.'</div>';
+        }
+        $i++;
+    }
+
+    $html .= "</div>
+             <script>
+                  jQuery( function() {
+                     jQuery( '#" . $id . "' ).tabs({
+                        collapsible: true,
+                        active:false
+                     });
+                  } );
+             </script>
+            
+            ";
+    return $html;
+}
 add_shortcode( 'accordion','rw_add_accordion' );
+add_shortcode( 'tabs','rw_add_tabs' );
+
+
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
 
 
 function frontend_ajax() {
