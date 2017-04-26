@@ -8,45 +8,47 @@ jQuery(document).ready(function ($) {
 
     $(document).on('facetwp-loaded', function() {
         // Scroll to the top of the page after the page is refreshed
-        $('html, body').animate({ scrollTop: 0 }, 500);
+        //$('html, body').animate({ scrollTop: 0 }, 500);
     });
 
-    jQuery('.facetwp-facet-bildungsstufen_themenseite').on('click', function(){
-        location.reload();
+
+    jQuery('.facetwp-facet-bildungsstufen_themenseite').on('mouseup', function(){
+       /*
+        jQuery('body').css('opacity','0.2');
+        setTimeout(function(){
+            location.reload();
+        }, 200);
+*/
     });
 
-    $(".material-detail-content-viewer").toc({
 
-        // option to shorten headlines that are too long
-        shorten: false,
+    $("#thema-toc").toc({content: "body", headings: "h2"});
 
-        // strip them after
-        stripAfter: 50,
+    $("#thema-toc li a").on('click', function () {
+        var id = $(this).attr('href');
+        $('html, body').animate({
+            scrollTop: $(id).offset().top -110
+        }, 800);
+    })
 
-        // speed of scrolling animation
-        scrollSpeed: 400,
-
-        // offset (useful if fixed positioned headers are used)
-        scrollOffset: 100,
-
-        // wrapper for toc (for example if displayed in bubble)
-        //wrapWith: '<div class="thema-toc"/>',
-
-        // toc container (parent element of toc)
-        container: '#thema-toc'
-
-    });
 
     jQuery('.rw-search-wrapper input#s').attr('name','fwp_suche');
     jQuery('.rpi-center-col form').attr('action','/facettierte-suche/');
-	
-	jQuery( document ).ajaxStart(function() {
-		jQuery('#page-loader').addClass('facetwp-loading');
-	});
-	jQuery( document ).ajaxComplete(function() {
-		jQuery('#page-loader').removeClass('facetwp-loading');
-		console.log('ready');   
-	});
+
+    jQuery( document ).ajaxStart(function() {
+        jQuery('#page-loader').addClass('facetwp-loading');
+    });
+    jQuery( document ).ajaxComplete(function() {
+        jQuery('#page-loader').removeClass('facetwp-loading');
+    });
+
+
+    jQuery( '.themenseite-gruppen' ).accordion({
+        collapsible: true,
+        active:false,
+        heightStyle: 'content',
+        header:'h2'
+    });
 
 });
 

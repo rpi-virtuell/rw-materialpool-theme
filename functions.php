@@ -118,40 +118,18 @@ function my_facetwp_facet_html( $output, $params ) {
 add_filter( 'facetwp_facet_html', 'my_facetwp_facet_html', 10, 2 );
 
 
-/*add accordeons to [accordion].<h3>..[/accordion] shortcode*/
-
 function enqueue_required_jquery_scripts(){
-    wp_enqueue_style('accordion', "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
+    wp_enqueue_style('jqueryui', "//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
     wp_enqueue_script( 'jquery-ui', '//code.jquery.com/ui/1.12.1/jquery-ui.js', array (), 1.1, true);
 
 }
 add_action('wp_enqueue_scripts','enqueue_required_jquery_scripts');
 
-function rw_add_accordion($atts, $content){
-
-    $description = str_replace('</h3>','</h3><div>',$content);
-    $description = str_replace('<h3>','</div><h3>',$description);
-
-
-    $html = '<div class="accordion"><div>'.$description.'</div></div>';
-    $html = str_replace('<div></div>','',$html);
-    $html .= "
-             <script>
-                  jQuery( function() {
-                    jQuery( '.accordion' ).accordion({
-                      collapsible: true,
-                      heightStyle: 'content',
-                      active:false,
-                      header:'h3'
-                    });
-                  } );
-             </script>
-            
-            ";
-    return $html;
-}
+/*add tabs to [tabs].<h5>..[/tabs] shortcode*/
 
 function rw_add_tabs($atts, $content){
+
+    $content = do_shortcode($content);
 
     $id = 'tabs-'.generateRandomString(4);
 
@@ -181,7 +159,7 @@ function rw_add_tabs($atts, $content){
     $html .= '</ul>';
 
 
-    $content = preg_replace('#<h5>(.*)</h5>#','[tab]$1',$content);
+    $content = preg_replace('#(<h5>.*</h5>)#','[tab]$1',$content);
     $parts = explode('[tab]',$content);
 
     $i = 0;
@@ -196,8 +174,7 @@ function rw_add_tabs($atts, $content){
              <script>
                   jQuery( function() {
                      jQuery( '#" . $id . "' ).tabs({
-                        collapsible: true,
-                        active:false
+                        collapsible: true
                      });
                   } );
              </script>
@@ -205,8 +182,36 @@ function rw_add_tabs($atts, $content){
             ";
     return $html;
 }
-add_shortcode( 'accordion','rw_add_accordion' );
 add_shortcode( 'tabs','rw_add_tabs' );
+
+
+
+/*add accordeons to [accordion].<h3>..[/accordion] shortcode*/
+
+function rw_add_accordion($atts, $content){
+
+    $description = str_replace('</h3>','</h3><div>',do_shortcode($content));
+    $description = str_replace('<h3>','</div><h3>',$description);
+
+
+    $html = '<div class="accordion"><div>'.$description.'</div></div>';
+    $html = str_replace('<div></div>','',$html);
+    $html .= "
+             <script>
+                  jQuery( function() {
+                    jQuery( '.accordion' ).accordion({
+                      collapsible: true,
+                      heightStyle: 'content',
+                      active:false,
+                      header:'h3'
+                    });
+                  } );
+             </script>
+            
+            ";
+    return $html;
+}
+add_shortcode( 'accordion','rw_add_accordion' );
 
 
 function generateRandomString($length = 10) {
