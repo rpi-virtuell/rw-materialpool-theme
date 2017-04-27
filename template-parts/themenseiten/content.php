@@ -40,6 +40,7 @@ global $themenseite_material_id_list;
                 </div>
                 <div class="thema-description themenseite-gruppen">
                 <?php foreach ( Materialpool_Themenseite::get_gruppen() as $gruppe ) {
+	                $themenseite_material_id_list = explode( ',', $gruppe[ 'auswahl'] );
                     $result = facetwp_display( 'template', 'thema' );
 
                     if(strlen($result) > 100){
@@ -48,7 +49,7 @@ global $themenseite_material_id_list;
                         <h2><?php echo $gruppe[ 'gruppe' ]; ?></h2>
                         <div>
                             <p><?php echo do_shortcode( $gruppe[ 'gruppenbeschreibung' ] ); ?></p>
-                            <?php $themenseite_material_id_list = explode( ',', $gruppe[ 'auswahl'] ); ?>
+
                             <div class="material-results"><?php echo $result; ?></div>
                         </div>
                     </div>
