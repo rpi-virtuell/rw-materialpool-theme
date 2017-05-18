@@ -9,6 +9,11 @@ jQuery(document).ready(function ($) {
     $(document).on('facetwp-loaded', function() {
         // Scroll to the top of the page after the page is refreshed
         //$('html, body').animate({ scrollTop: 0 }, 500);
+        jQuery( '.themenseite-gruppen' ).accordion({
+            collapsible: true,
+            heightStyle: 'content',
+            header:'h2'
+        });
     });
 
 
@@ -22,7 +27,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    $("#thema-toc").toc({content: "body", headings: "h2"});
+    $("#thema-toc").toc({content: "#thema-description", headings: "h2"});
 
     $("#thema-toc li a").on('click', function () {
         var id = $(this).attr('href');
@@ -43,12 +48,7 @@ jQuery(document).ready(function ($) {
     });
 
 
-    jQuery( '.themenseite-gruppen' ).accordion({
-        collapsible: true,
-        active:false,
-        heightStyle: 'content',
-        header:'h2'
-    });
+
 
 });
 

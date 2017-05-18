@@ -74,8 +74,6 @@ function facetwp_query_args_material_verweise( $query_args, $class ) {
 }
 add_filter( 'facetwp_query_args', 'facetwp_query_args_material_verweise', 10, 2 );
 
-
-
 function facetwp_query_args_themenseiten( $query_args, $class ) {
     global $post;
     global $themenseite_material_id_list;
@@ -105,6 +103,9 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
     return $query_args;
 }
 add_filter( 'facetwp_query_args', 'facetwp_query_args_themenseiten', 10, 2 );
+
+
+
 
 
 

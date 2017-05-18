@@ -12,7 +12,7 @@ global $themenseite_material_id_list;
     endif;
     ?>
     <header class="entry-header">
-       <?php     the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+        <?php     the_title( '<h1 class="entry-title">', '</h1>' ); ?>
     </header><!-- .entry-header -->
 
     <?php if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
@@ -39,21 +39,10 @@ global $themenseite_material_id_list;
                     <?php echo facetwp_display( 'facet', 'bildungsstufen_themenseite' ); ?>
                 </div>
                 <div class="thema-description themenseite-gruppen">
-                <?php foreach ( Materialpool_Themenseite::get_gruppen() as $gruppe ) {
-	                $themenseite_material_id_list = explode( ',', $gruppe[ 'auswahl'] );
+                    <?php
                     $result = facetwp_display( 'template', 'thema' );
-
-                    if(strlen($result) > 100){
+                    echo $result;
                     ?>
-                    <div class="themenseite-gruppe material-column">
-                        <h2><?php echo $gruppe[ 'gruppe' ]; ?></h2>
-                        <div>
-                            <p><?php echo do_shortcode( $gruppe[ 'gruppenbeschreibung' ] ); ?></p>
-
-                            <div class="material-results"><?php echo $result; ?></div>
-                        </div>
-                    </div>
-                <?php }} ?>
                 </div>
             </header>
 
