@@ -72,6 +72,7 @@ a {
     max-width: 1200px;
 }
 
+.single div#primary.content-area,
 .single-material div#primary.content-area,
 .single-autor div#primary.content-area,
 .single-themenseite div#primary.content-area,

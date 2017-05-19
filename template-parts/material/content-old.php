@@ -52,7 +52,7 @@
     <div class="entry-content material-detail">
 
         <div class="material-detail-left material-column">
-
+            <img alt="screenshot" src="http://s.wordpress.com/mshots/v1/<?php echo urlencode(Materialpool_Material::url());?>?w=400%&h=300%" />
             <div class="material-detail-buttons">
                 <?php echo Materialpool_Material::cta_link(); ?>
                 <?php echo Materialpool_Material::cta_url2clipboard(); ?>
@@ -79,18 +79,55 @@
                     ?>
 
                     <span title="<?php echo $val[ 'name' ]; ?>" class="fa-stack fa-2x">
-            <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
-            <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
-        </span>
+                        <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
+                        <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
+                    </span>
 
                 <?php } ?>
             </div>
             <div class="material-detail-meta-rating material-meta">
                 <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
             </div>
+            <div class="clear">&nbsp;<br>&nbsp;</div>
+            <div class="material-detail-meta-author material-meta">
+                <h4>Herkunft</h4>
+                <div class="material-meta-content-entry">
+                <?php
+
+                $post_id = get_the_ID();
+
+                $keywords= get_post_meta($post_id, 'material_autor_interim') ;
+                if(is_array($keywords)) $keywords = $keywords[0];
+                echo str_replace(',', ', ', $keywords) . '<br>';
+                $keywords= get_post_meta($post_id, 'material_organisation_interim') ;
+                if(is_array($keywords)) $keywords = $keywords[0];
+                echo str_replace(' ', ', ' , str_replace(',', ', ', $keywords));
+
+                ?>
+                </div>
+                <h4>Bildungstufen</h4>
+                <div class="material-meta-content-entry">
+                    <?php
+                        $bildungsstufen = get_post_meta($post_id, 'material_bildungsstufe');
+                        foreach ($bildungsstufen as $bs){
+                            $bildungsstufe[$bs]=$bs;
+                        }
+                        foreach ($bildungsstufe as $bs){
+                            echo '<span>'.get_term($bs)->name.', </span>';
+                        }
+                    ?>
+                </div>
+            </div>
         </div>
         <footer class="material-detail-footer">
-            <?php  get_template_part('template-parts/material/content-part-footer', get_post_format()); ?>
+            Schlagworte:
+            <?php
+            $keywords= get_post_meta($post_id, 'material_schlagworte_interim') ;
+            if(is_array($keywords)) $keywords = $keywords[0];
+            echo str_replace(',', ', ', $keywords);
+            ?>
+            <?php
+            //get_template_part('template-parts/material/content-part-footer', get_post_format()); ?>
         </footer>
 
 
