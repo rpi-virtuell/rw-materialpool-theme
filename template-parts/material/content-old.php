@@ -81,15 +81,23 @@
                     <span title="<?php echo $val[ 'name' ]; ?>" class="fa-stack fa-2x">
                         <i  class="fa fa-circle fa-stack-2x" style="color: <?php echo $val[ 'farbe' ]; ?>"></i>
                         <i class="fa <?php echo $val[ 'icon' ]; ?> fa-stack-1x icon-weiss"></i>
-                    </span>
+                    </span><span style="font-size:13px"><?php echo $val[ 'name' ]; ?></span>
 
                 <?php } ?>
             </div>
+            <div class="clear"></div>
             <div class="material-detail-meta-rating material-meta">
                 <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
             </div>
             <div class="clear">&nbsp;<br>&nbsp;</div>
             <div class="material-detail-meta-author material-meta">
+                <h4>Alter Eintrag!</h4>
+                <div class="material-meta-content-entry">
+                    <span style="font-size:14px">
+                        Dieses Material wurde noch nicht überarbeitet und entspricht
+                        möglicherweise nicht mehr den qualitativen Anforderungen des neuen Materialpools.
+                    </span>
+                </div>
                 <h4>Herkunft</h4>
                 <div class="material-meta-content-entry">
                 <?php
@@ -105,6 +113,7 @@
 
                 ?>
                 </div>
+
                 <h4>Bildungstufen</h4>
                 <div class="material-meta-content-entry">
                     <?php
@@ -117,6 +126,7 @@
                         }
                     ?>
                 </div>
+
             </div>
         </div>
         <footer class="material-detail-footer">
