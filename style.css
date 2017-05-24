@@ -371,6 +371,9 @@ div.material-column h1,
     margin-top: 10px;
     padding-top: 10px;
     border-top: 1px solid lightsteelblue;
+    padding-left: 30px;
+    border-radius: 4px;
+    background-color: #888;
 }
 
 /* left column items */
@@ -659,7 +662,7 @@ div.material-suche .facetwp-btn:hover{
     display: inline;
 }
 .material-pager {
-    width: 300px;
+    width: auto;
     float: right;
 }
 .material-pager div.facetwp-pager{

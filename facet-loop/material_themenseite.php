@@ -45,7 +45,6 @@
                                     <div class="facet-treffer<?php echo ( Materialpool_Material::is_alpika() ) ? ' alpika' : ''; ?><?php echo ( Materialpool_Material::is_special() ) ? ' special' : ''; ?>">
                                         <div class="facet-treffer-content">
                                             <?php if ( Materialpool_Material::cover_facet_html() && ! in_array( strrchr( Materialpool_Material::get_url(), '.' ), array(
-                                                    '.pdf',
                                                     '.docx',
                                                     '.doc',
                                                     '.odt'
