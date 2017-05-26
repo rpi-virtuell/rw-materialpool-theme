@@ -16,7 +16,7 @@ global $post;
             <main id="main" class="site-main" role="main">
 
                 <div class="startseite-block-header">
-                    <p>Herzlich Willkommen im neuen Materialpool</p>
+                    <p>Herzlich willkommen im neuen Materialpool</p>
                     <div class="startseite-block-content">
                         <?php
                         $freitext = get_metadata( 'post', $post->ID, 'startseite_freitext', true );
