@@ -78,6 +78,7 @@
                 $value = $embed->run_shortcode( $value );
                 $value = $embed->autoembed( $value );
                 echo $value;
+                ?>
             </div>
             <div class="material-detail-description-footer material-desc">
                 <?php Materialpool_Material::description_footer(); ?>
