@@ -76,7 +76,7 @@
                 $embed = $GLOBALS[ 'wp_embed' ];
                 $value = $embed->run_shortcode( $value );
                 $value = $embed->autoembed( $value );
-                echo $value;
+                echo do_shortcode( $value );
                 ?>
             </div>
             <div class="material-detail-description-footer material-desc">
