@@ -68,3 +68,12 @@
         </div>
     </div>
 <?php endif;?>
+<div class="material-meta" style="clear: both;height:10px;"></div>
+<div class="material-detail-meta-ticker material-meta">
+    <h4>Materialticker</h4>
+    <div class="material-meta-content-entry">
+Melden Sie sich zum <a href="https://material.rpi-virtuell.de/materialticker/">materialticker</a> an und erhalten Sie mehrmals wöchentlich die aktuellen Materialpooleinträge zugeschickt.
+<br>
+    <img src="<?php echo get_stylesheet_directory_uri() . '/assets/materialticker.png'; ?>">
+</div>
+</div>
