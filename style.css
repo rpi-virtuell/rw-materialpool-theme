@@ -529,6 +529,21 @@ img.materialpool-template-material-autor-logo{
 .material-detail-meta-author div{
     margin-bottom: 20px;
 }
+
+
+.material-detail-meta-ticker div a {
+    display: inline;
+}
+.material-detail-meta-access div{
+    margin-bottom: 20px;
+}
+
+
+.material-detail-meta-ticker div{
+    margin-bottom: 20px;
+}
+
+
 .material-meta .material-meta-content-entry{
     margin-left: 5%;
 }
