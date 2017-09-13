@@ -1,47 +1,60 @@
 <?php
 /**
- * The Template for displaying all autors aka archive
+ * Template Name: Suche
+ * Template Post Type: page
  *
- * @since      0.0.1
- * @package    Materialpool
- * @author     Frank Staude <frank@staude.net>
- * @version    0.0.2
+ * @version 1.0
+ *
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
+	exit; // Exit if accessed directly
 }
+
 get_header( 'materialpool' ); ?>
 
-<div class="wrap">
-    <div id="primary" class="content-area">
-        <main id="main" class="site-main" role="main">
+    <div class="wrap">
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main" role="main">
+                <div class="wrap">
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main" role="main">
+                            <div class="entry-content material-facet-search">
+                                <div class="material-facetscontainer">
+                                    <div class="mfacet-wrap">
+                                        <div class="first-search-facets">
+											<?php echo facetwp_display( 'facet', 'autor_organisation' ); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="material-resultcontainer">
+                                    <div class="material-suche">
+										<?php echo facetwp_display( 'facet', 'autor_suche' ); ?>
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="material-selection"><?php echo facetwp_display( 'selections' ); ?></div>
+                                    <div>
+                                        <div class="material-counter">
+											<?php echo facetwp_display( 'counts' ); ?> Treffer
+                                        </div>
+                                        <div class="material-pager">
+											<?php echo facetwp_display( 'pager' ); ?>
+                                        </div>
 
-            <?php
-            /* Start the Loop */
-            while ( have_posts() ) : the_post();
-                $id = get_the_ID();
-                $vorname = Materialpool_Autor::get_firstname();
-                $nachname = Materialpool_Autor::get_lastname();
-                $pic = Materialpool_Autor::get_picture();
-
-                ?>
-                <div style="padding-top: 20px;">
-                    <div style="float: left; width: 25%;"><img src="<?php echo $pic; ?>" style="max-width: 98%"></div>
-                    <div style="float: left; width: 75%;"><h2><a href="<?php echo get_permalink( $id); ?>"><?php echo $vorname . " ". $nachname; ?></a></h2></div>
-                    <div style="clear: both;"></div>
-
-                </div>
-                <?php
-            endwhile; // End of the loop.
-
-            posts_nav_link();
-            ?>
-
-        </main><!-- #main -->
-    </div><!-- #primary -->
-
-</div><!-- .wrap -->
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="material-results"><?php echo facetwp_display( 'template', 'autoren' ); ?></div>
+                                    <div class="material-pager"><?php echo facetwp_display( 'pager' ); ?></div></div><div id="page-loader"></div>
+                            </div>
+                    </div>
+            </main>
+        </div>
+    </div>
+    </main>
+    </div>
+    <div id="secondary" style="display: none"></div>
+    </div>
+<?php get_footer();
 
 
-<?php get_footer( 'materialpool' ); ?>
+
