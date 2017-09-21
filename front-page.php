@@ -84,6 +84,31 @@ global $post;
                             </div>
 	                    <?php endwhile;
 	                    wp_reset_postdata();
+	                    unset( $my_query);
+                        $startseite_aktuell = get_metadata( 'post', $post->ID, 'startseite_themen', false );
+                        $IDlistArr = array();
+                        foreach ( $startseite_aktuell as $entry ) {
+	                        $IDlistArr[] = $entry['ID'];
+                        }
+                        $args = array(
+	                        'post__in'                      => $IDlistArr ,
+	                        'post_type'              => array( 'themenseite' ),
+                        );
+                        $my_query = new WP_Query( $args );
+                        while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+                            <div class="facet-treffer>">
+                                <div class="facet-treffer-content">
+                                        <div class="material-cover">
+                                            <img src="<?php echo catch_thema_image() ?>">
+                                        </div>
+                                    <p class="material-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+                                    <p class="search-description">
+	                                    <?php the_excerpt(); ?>
+                                    </p>
+                                </div><div class="clear"></div>
+                            </div>
+                        <?php endwhile;
+                        wp_reset_postdata();
 	                    ?>
                         </div>
                     </div>
@@ -109,6 +134,49 @@ global $post;
 	            <?php
 	            }
 	            ?>
+	            <?php
+	            $show_themenseiten = get_metadata( 'post', $post->ID, 'show_themenseiten', true );
+	            if ( $show_themenseiten == 1 ) {
+		            ?>
+                    <div class="startseite-block-header">
+                        <P><?php
+				            $show_themenseiten_titel = get_metadata( 'post', $post->ID, 'startseite_themenseiten_titel', true );
+				            echo do_shortcode( $show_themenseiten_titel );
+				            ?></P>
+                        <div class="startseite-block-content  material-results">
+                            <div class="facetwp-template" data-name="startseite_aktuell">
+                            <?php
+                            $args = array(
+                            'posts_per_page' => 3,
+                            'post_type'              => array( 'themenseite' ),
+                            );
+                            $my_query = new WP_Query( $args );
+                            while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+                            <div class="facet-treffer>">
+                                <div class="facet-treffer-content">
+                                    <div class="material-cover">
+                                        <img src="<?php echo catch_thema_image() ?>">
+                                    </div>
+                                    <p class="material-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+                                    <p class="search-description">
+				                        <?php the_excerpt(); ?>
+                                    </p>
+                                </div><div class="clear"></div>
+                            </div>
+
+	                        <?php endwhile;
+	                        wp_reset_postdata();
+	                        ?>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+		            <?php
+	            }
+	            ?>
+
+
+
 	            <?php
 	            $show_oer = get_metadata( 'post', $post->ID, 'show_oer', true );
 	            if ( $show_oer == 1 ) {
