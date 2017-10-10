@@ -7,13 +7,19 @@
  *
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly
-}
+    if ( ! defined( 'ABSPATH' ) ) {
+        exit; // Exit if accessed directly
+    }
 
-get_header( 'materialpool' ); ?>
 
-    <div class="wrap">
+    if ( 'iframe' == $wp_query->query_vars[ 'mpembed'] ) {
+        get_header( 'materialpool-iframe' );
+    } else {
+        get_header( 'materialpool');
+    }
+
+    ?>
+
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
                 <div class="wrap">
@@ -31,8 +37,11 @@ get_header( 'materialpool' ); ?>
                                         <div class="second-search-facets">
                                             <?php echo facetwp_display( 'facet', 'schlagworte' ); ?>
                                             <?php echo facetwp_display( 'facet', 'inklusion' ); ?>
+
                                             <?php echo facetwp_display( 'facet', 'organisation' ); ?>
+
                                             <?php echo facetwp_display( 'facet', 'autor' ); ?>
+
                                             <?php echo facetwp_display( 'facet', 'lizenz' ); ?>
                                             <?php echo facetwp_display( 'facet', 'sprache' ); ?>
                                             <?php echo facetwp_display( 'facet', 'verfuegbarkeit' ); ?>
@@ -74,9 +83,12 @@ get_header( 'materialpool' ); ?>
                 </div>
             </main>
         </div>
-        <div id="secondary" style="display: none"></div>
-    </div>
-<?php get_footer();
 
 
+<?php
 
+if ( 'iframe' == $wp_query->query_vars[ 'mpembed'] ) {
+    get_footer('materialpool-iframe' );
+} else {
+	get_footer( );
+}

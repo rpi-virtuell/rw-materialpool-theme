@@ -40,7 +40,6 @@ function facetwp_query_args_autor( $query_args, $class ) {
             $query_args['meta_query'][0][ 'value'] = (string)$post->ID;
         }
     }
-
     return $query_args;
 }
 
@@ -249,3 +248,57 @@ function catch_thema_image() {
     }
     return $first_img;
 }
+
+add_filter('query_vars', 'parameter_queryvars' );
+function parameter_queryvars( $qvars )
+{
+	$qvars[] = 'mpembed';
+	$qvars[] = 'mpobject';
+	$qvars[] = 'mpvalue';
+	return $qvars;
+}
+
+function facetwp_query_args_embed( $query_args, $class ) {
+
+	if (defined('REST_REQUEST') && REST_REQUEST) {
+		$object =  sanitize_key( $class->ajax_params['http_params']['get'][ 'mpobject'] ) ;
+		$value =  (int) $class->ajax_params['http_params']['get'][ 'mpvalue'];
+		if ( 'iframe' ==$class->ajax_params['http_params']['get'][ 'mpembed']  && $object != '' && $value != 0 ) {
+			if ( $object == 'autor') {
+				$query_args['meta_query'][] = array(
+					'key' => 'material_autoren',
+					'value' => $value,
+				) ;
+			}
+			if ( $object == 'organisation') {
+				$query_args['meta_query'][] = array(
+					'key' => 'material_organisation',
+					'value' => $value,
+				);
+			}
+		}
+
+	 } else {
+		global $wp_query;
+		$object =  sanitize_key( $wp_query->query_vars[ 'mpobject'] );
+		$value =  (int) $wp_query->query_vars[ 'mpvalue'];
+		if ( 'iframe' == $wp_query->query_vars[ 'mpembed']  && $object != '' && $value != 0 ) {
+			if ( $object == 'autor') {
+				$query_args['meta_query'][] = array(
+					'key' => 'material_autoren',
+					'value' => $value,
+				) ;
+			}
+			if ( $object == 'organisation') {
+				$query_args['meta_query'][] = array(
+					'key' => 'material_organisation',
+					'value' => $value,
+				);
+			}
+		}
+	}
+
+
+	return $query_args;
+}
+add_filter( 'facetwp_query_args', 'facetwp_query_args_embed', 10, 2 );
