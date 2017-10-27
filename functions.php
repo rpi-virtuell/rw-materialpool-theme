@@ -261,39 +261,42 @@ function parameter_queryvars( $qvars )
 function facetwp_query_args_embed( $query_args, $class ) {
 
 	if (defined('REST_REQUEST') && REST_REQUEST) {
-		$object =  sanitize_key( $class->ajax_params['http_params']['get'][ 'mpobject'] ) ;
-		$value =  (int) $class->ajax_params['http_params']['get'][ 'mpvalue'];
-		if ( 'iframe' ==$class->ajax_params['http_params']['get'][ 'mpembed']  && $object != '' && $value != 0 ) {
-			if ( $object == 'autor') {
-				$query_args['meta_query'][] = array(
-					'key' => 'material_autoren',
-					'value' => $value,
-				) ;
-			}
-			if ( $object == 'organisation') {
-				$query_args['meta_query'][] = array(
-					'key' => 'material_organisation',
-					'value' => $value,
-				);
+		if ( isset( $class->ajax_params['http_params']['get']['mpobject'] ) &&  isset( $class->ajax_params['http_params']['get']['mpvalue'] ) ) {
+			$object = sanitize_key( $class->ajax_params['http_params']['get']['mpobject'] );
+			$value  = (int) $class->ajax_params['http_params']['get']['mpvalue'];
+			if ( 'iframe' == $class->ajax_params['http_params']['get']['mpembed'] && $object != '' && $value != 0 ) {
+				if ( $object == 'autor' ) {
+					$query_args['meta_query'][] = array(
+						'key'   => 'material_autoren',
+						'value' => $value,
+					);
+				}
+				if ( $object == 'organisation' ) {
+					$query_args['meta_query'][] = array(
+						'key'   => 'material_organisation',
+						'value' => $value,
+					);
+				}
 			}
 		}
-
 	 } else {
 		global $wp_query;
-		$object =  sanitize_key( $wp_query->query_vars[ 'mpobject'] );
-		$value =  (int) $wp_query->query_vars[ 'mpvalue'];
-		if ( 'iframe' == $wp_query->query_vars[ 'mpembed']  && $object != '' && $value != 0 ) {
-			if ( $object == 'autor') {
-				$query_args['meta_query'][] = array(
-					'key' => 'material_autoren',
-					'value' => $value,
-				) ;
-			}
-			if ( $object == 'organisation') {
-				$query_args['meta_query'][] = array(
-					'key' => 'material_organisation',
-					'value' => $value,
-				);
+		if ( isset( $wp_query->query_vars[ 'mpobject'])  &&  isset( $wp_query->query_vars[ 'mpvalue'] ) ) {
+			$object = sanitize_key( $wp_query->query_vars['mpobject'] );
+			$value  = (int) $wp_query->query_vars['mpvalue'];
+			if ( 'iframe' == $wp_query->query_vars['mpembed'] && $object != '' && $value != 0 ) {
+				if ( $object == 'autor' ) {
+					$query_args['meta_query'][] = array(
+						'key'   => 'material_autoren',
+						'value' => $value,
+					);
+				}
+				if ( $object == 'organisation' ) {
+					$query_args['meta_query'][] = array(
+						'key'   => 'material_organisation',
+						'value' => $value,
+					);
+				}
 			}
 		}
 	}
