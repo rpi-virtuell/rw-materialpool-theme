@@ -81,6 +81,7 @@
             </div>
             <div class="material-detail-description-footer material-desc">
                 <?php if(!Materialpool_Material::is_special()):?>
+                    <?php Materialpool_Material::get_themenseiten_for_material_html() ; ?>
                     <?php Materialpool_Material::description_footer(); ?>
                 <?php endif;?>
             </div>
