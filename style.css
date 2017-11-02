@@ -393,7 +393,7 @@ div.material-detail-image, .material-detail .materialpool-template-material-pict
 }
 
 .facet-treffer.alpika{
-    background: lightyellow url('/wp-content/plugins/rw-materialpool//assets/alpika.png') no-repeat right top;
+    background: lightyellow url('/wp-content/plugins/rw-materialpool/assets/alpika.png') no-repeat right top;
     border: 1px solid #FEDFB2;
     padding-top:40px;
 }
@@ -951,4 +951,20 @@ footer, footer a, footer h2.widget-title{
     color: #ffffff;
     text-decoration:none;
 
+}
+
+/* Autorenliste */
+
+.post-type-archive-autor .facet-treffer {
+    background: #fff;
+    padding: 5px 0 20px 5px;
+    border-radius: 3px;
+}
+
+/* Organisationenliste */
+
+.post-type-archive-organisation .facet-treffer {
+    background: #fff;
+    padding: 5px 0 20px 5px;
+    border-radius: 3px;
 }

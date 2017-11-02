@@ -112,6 +112,9 @@ function my_facetwp_facet_html( $output, $params ) {
     if ( 'alpika' == $params['facet']['name'] ) {
         $output = str_replace('>1 <','>aus den Instituten <',$output);
     }
+	if ( 'alpika_organisation' == $params['facet']['name'] ) {
+		$output = str_replace('>1 <','>ALPIKA <',$output);
+	}
     return $output;
 }
 

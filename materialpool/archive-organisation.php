@@ -23,7 +23,8 @@ get_header( 'materialpool' ); ?>
                                 <div class="material-facetscontainer">
                                     <div class="mfacet-wrap">
                                         <div class="first-search-facets">
-											<?php echo facetwp_display( 'facet', 'organisation_autor' ); ?>
+	                                        <?php echo facetwp_display( 'facet', 'alpika_organisation' ); ?>
+	                                        <?php echo facetwp_display( 'facet', 'konfession_organisation' ); ?>
                                         </div>
                                     </div>
                                 </div>
