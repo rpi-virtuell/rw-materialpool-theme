@@ -48,7 +48,13 @@ jQuery(document).ready(function ($) {
     });
 
 
+    jQuery('.page-template-suche-php .facet-treffer-content h2 a ').each(function() {
+        var currHref = $(this).attr("href");
+        if (currHref.indexOf('?') > 0)
+            jQuery(this).attr("href",currHref+"&sq="+ encodeURIComponent(window.location));
+        else
+            jQuery(this).attr("href",currHref+"?sq="+ encodeURIComponent(window.location));
+    });
 
 
 });
-
