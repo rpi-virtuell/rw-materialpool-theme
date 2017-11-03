@@ -81,7 +81,7 @@
                 ?>
             </div>
             <div class="material-detail-description-footer material-desc">
-                <?php var_dump( Materialpool_Material::get_themenseiten_for_material_html() ); ?>
+                <?php Materialpool_Material::get_themenseiten_for_material_html(); ?>
                 <?php Materialpool_Material::description_footer(); ?>
             </div>
             <?php  get_template_part('template-parts/material/content-part-links', get_post_format()); ?>
