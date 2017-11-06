@@ -308,3 +308,11 @@ function facetwp_query_args_embed( $query_args, $class ) {
 	return $query_args;
 }
 add_filter( 'facetwp_query_args', 'facetwp_query_args_embed', 10, 2 );
+
+function remove_admin_bar() {
+
+	if ( 'iframe' == $_GET[ 'mpembed'] ) {
+		show_admin_bar( false );
+	}
+}
+add_action('after_setup_theme', 'remove_admin_bar');
