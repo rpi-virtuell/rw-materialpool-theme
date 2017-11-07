@@ -838,6 +838,9 @@ body.page-template-suche div.facet-treffer div.facet-treffer-mediatyps{
     max-width: 200px;
 }
 
+.comment-list {
+    padding-left: 65px;
+}
 
 @media all and (max-width: 600px) {
     .wrap{
