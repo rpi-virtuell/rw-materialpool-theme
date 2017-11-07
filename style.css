@@ -376,6 +376,11 @@ div.material-column h1,
     background-color: #888;
 }
 
+
+.material > div > footer > div > a {
+    background-color: transparent;
+}
+
 /* left column items */
 div.material-detail-image, .material-detail .materialpool-template-material-picture-facet{
     width: 100%;

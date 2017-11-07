@@ -7,5 +7,5 @@
  */
 ?>
 <div class="material-detail-schlagworte material-footer">
-    Schlagworte: <?php echo Materialpool_Material::get_schlagworte() ?>
+    Schlagworte: <?php echo Materialpool_Material::get_schlagworte_html( "/facettierte-suche/"); ?>
 </div>
