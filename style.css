@@ -842,6 +842,16 @@ body.page-template-suche div.facet-treffer div.facet-treffer-mediatyps{
     padding-left: 65px;
 }
 
+.comment-author {
+    padding-left: 10px;
+}
+.comment-metadata {
+    padding-left: 10px;
+}
+.comment-metadata a {
+    color: #ffffff;
+}
+
 @media all and (max-width: 600px) {
     .wrap{
         padding:0 0 0 2px;
