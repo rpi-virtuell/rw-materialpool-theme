@@ -77,9 +77,9 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
     global $post;
     global $themenseite_material_id_list;
 
-
+	$material_id_list = array();
     if (defined('REST_REQUEST') && REST_REQUEST) {
-        $material_id_list = array();
+
 
 
         if ('thema' == $class->ajax_params['template']) {
@@ -95,8 +95,12 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
         }
 
     }elseif ($post->post_type == "themenseite" && !is_embed() ){
-        //var_dump($themenseite_material_id_list);
-        $query_args['post__in'] = $themenseite_material_id_list;
+
+	    foreach(Materialpool_Themenseite::get_gruppen($post->ID) as $gruppe){
+		    $id_list = explode( ',', $gruppe[ 'auswahl'] );
+		    $material_id_list = array_merge($material_id_list, $id_list);
+	    }
+	    $query_args['post__in'] = $material_id_list;
     }
 
     return $query_args;
