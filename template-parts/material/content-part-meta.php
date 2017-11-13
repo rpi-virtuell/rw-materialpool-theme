@@ -60,7 +60,8 @@
         </div>
     <?php endif; ?>
 </div>
-<?php if(!Materialpool_Material::is_special() && Materialpool_Material::availability() != ''): ?>
+
+<?php if(!Materialpool_Material::is_special() && Materialpool_Material::get_availability() != ''): ?>
     <div class="material-detail-meta-access material-meta">
         <h4>Verfügbarkeit</h4>
         <div class="material-meta-content-entry">
@@ -68,6 +69,15 @@
         </div>
     </div>
 <?php endif;?>
+<?php if(!Materialpool_Material::is_special() && Materialpool_Material::get_werkzeuge() != ''): ?>
+    <div class="material-detail-meta-access material-meta">
+        <h4>Erstellt mit</h4>
+        <div class="material-meta-content-entry">
+			<?php Materialpool_Material::werkzeuge_html(); ?>
+        </div>
+    </div>
+<?php endif;?>
+
 <div class="material-meta" style="clear: both;height:10px;"></div>
 <div class="material-detail-meta-ticker material-meta">
     <h4>Materialticker</h4>

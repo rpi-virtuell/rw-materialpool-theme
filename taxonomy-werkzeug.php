@@ -4,49 +4,45 @@
 
 get_header(); ?>
 
-	<div class="wrap">
+    <div class="wrap">
+        <div id="primary" class="content-area">
+            <main id="main" class="site-main" role="main">
 
-			<header>
-				<?php
-				single_term_title( '<h1 class="page-title">', '</h1>' );
-				?>
-			</header><!-- .page-header -->
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-		<div id="primary" class="content-area">
-			<?php echo term_description( ); ?>
+                    <header class="entry-header">
+						<?php     single_term_title( '<h1 class="page-title">', '</h1>' ); ?>
+                    </header><!-- .entry-header -->
 
-			<main id="main" class="site-main" role="main">
+						<?php echo term_description( ); ?>
+                    <div class="entry-content material-detail">
 
-				<?php
-				if ( have_posts() ) : ?>
-					<?php
-					/* Start the Loop */
-					while ( have_posts() ) : the_post();
+                        <div class="material-detail-content-viewer material-column">
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/post/content', get_post_format() );
+                            <header class="thema-header">
+                                <div class="thema-facets">
+                                    <ul id="thema-toc" class="thema-toc"></ul>
+                                </div>
+                                <div id="thema-description" class="thema-description"><?php the_content(); ?></div>
+                            </header>
 
-					endwhile;
+                            <header class="thema-header">
 
-					the_posts_pagination( array(
-						'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-						'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-						'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-					) );
+                                <div class="thema-description themenseite-gruppen">
+									<?php
+									$result = facetwp_display( 'template', 'werkzeug' );
+									echo $result;
+									?>
+                                </div>
+                            </header>
 
-				else :
+                        </div>
 
-					get_template_part( 'template-parts/post/content', 'none' );
 
-				endif; ?>
+                        </article><!-- #post-## -->
 
-			</main><!-- #main -->
-		</div><!-- #primary -->
-		<?php get_sidebar(); ?>
-	</div><!-- .wrap -->
+            </main><!-- #main -->
+        </div><!-- #primary -->
+    </div><!-- .wrap -->
 
 <?php get_footer();
