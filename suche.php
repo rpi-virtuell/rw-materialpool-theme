@@ -46,6 +46,7 @@
                                             <?php echo facetwp_display( 'facet', 'sprache' ); ?>
                                             <?php echo facetwp_display( 'facet', 'verfuegbarkeit' ); ?>
                                             <?php echo facetwp_display( 'facet', 'zugaenglichkeit' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'werkzeuge' ); ?>
 
                                         </div>
                                         <div class="advanced-search-facets" style="display:none">
