@@ -11,7 +11,7 @@ get_header(); ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                     <header class="entry-header">
-						<?php     single_term_title( '<h1 class="page-title">', '</h1>' ); ?>
+						<?php     single_term_title( '<h1 >', '</h1>' ); ?>
                     </header><!-- .entry-header -->
 
 						<?php echo term_description( ); ?>

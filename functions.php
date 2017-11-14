@@ -63,6 +63,17 @@ function facetwp_query_args_organisation( $query_args, $class ) {
 }
 add_filter( 'facetwp_query_args', 'facetwp_query_args_organisation', 10, 2 );
 
+function facetwp_query_args_werkzeug( $query_args, $class ) {
+
+	if (is_tax() ) {
+		$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+		$query_args['tax_query'][0]['terms'] = $term->slug;
+	}
+	return $query_args;
+}
+
+add_filter( 'facetwp_query_args', 'facetwp_query_args_werkzeug', 10, 2 );
+
 
 function facetwp_query_args_material_verweise( $query_args, $class ) {
     global $post;
