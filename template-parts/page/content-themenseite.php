@@ -69,7 +69,6 @@
 			<?php endwhile; ?>
 		<?php endif; ?>
 		<?php wp_reset_query(); ?>
-        ?>
 
 	</div><!-- .entry-content -->
 </article><!-- #post-## -->
