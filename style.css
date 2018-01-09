@@ -987,7 +987,7 @@ footer, footer a, footer h2.widget-title{
     border-radius: 3px;
 }
 
-ul, ol {
+.material-detail-description ul, ol {
     padding-left: 20px;
 }
 
