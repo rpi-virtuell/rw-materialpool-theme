@@ -49,8 +49,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             </div>
 
-            <div class="material-detail-buttons">
+            <div class="material-detail-buttons material-column">
                 <a class="cta-button" href="<?php Materialpool_Autor::url(); ?>">Webseite</a>
+            </div>
+            <div class="material-detail-buttons material-column">
+                <?php Materialpool_Autor::autor_request_button(); ?>
             </div>
         </div>
         <div class="autor-content">

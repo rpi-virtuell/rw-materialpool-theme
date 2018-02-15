@@ -50,19 +50,24 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div>
                 <?php if(Materialpool_Organisation::is_alpika()):?>
                     <p><img class="alpika-logo" src="http://material.rpi-virtuell.de/wp-content/plugins/rw-materialpool//assets/alpika.png">
-                        <?php Materialpool_Organisation::title();?> ist Teil der <a href="http://www.relinet.de/alpika.html">Arbeitsgemeinschaft</a>
-                        der Leiterinnen und Leiter der Pädagogischen Institute und Katechetischen Ämter
+                        <?php Materialpool_Organisation::title();?> ist Teil der 
+						<a href="http://www.relinet.de/alpika.html">Arbeitsgemeinschaft</a> 
+						der Pädagogischen Institute und Katechetischen Ämter
                         <img class="ekd-logo" src="https://datenschutz.ekd.de/wp-content/uploads/2015/01/EKD-Logo.png">
                         in der Evangelischen Kirche in Deutschland.
                     </p>
                 <?php elseif(Materialpool_Organisation::get_konfession() == 'evangelisch'):?>
-                    <img class="ekd-logo" src="https://datenschutz.ekd.de/wp-content/uploads/2015/01/EKD-Logo.png">
-                    Eine Einrichtung in der evangelischen Kirche.
+                    <b>Evangelische Einrichtung.</b>
+                <?php elseif(Materialpool_Organisation::get_konfession() == 'katholisch'):?>
+                    <b>Katholische Einrichtung.</b>
+				<?php elseif(Materialpool_Organisation::get_konfession() == 'islamisch'):?>
+                    <b>Islamische Einrichtung.</b>
                 <?php endif;?>
             </div>
 
-            <div class="material-detail-buttons">
+            <div class="material-detail-buttons material-column">
                 <a class="cta-button" href="<?php echo Materialpool_Organisation::get_url(); ?>">Homepage der Einrichtung</a>
+				
             </div>
 
         </div>

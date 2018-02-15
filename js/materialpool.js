@@ -27,6 +27,20 @@ jQuery(document).ready(function ($) {
     });
 
 
+	/*******************
+	 * Startseiten Image wird beim laden kleiner gezogen
+     */
+
+	$('.home .custom-header-media img').animate({
+		top: '-22vh'
+	},2000);
+	$('.has-header-image.twentyseventeen-front-page .custom-header').animate({
+		'height': '31vh'
+	}, 2000, function(){});
+	
+	/***************/
+	
+	
     $("#thema-toc").toc({content: "#thema-description", headings: "h2"});
 
     $("#thema-toc li a").on('click', function () {

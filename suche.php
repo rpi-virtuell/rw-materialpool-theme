@@ -32,25 +32,22 @@
                                             <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
                                             <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
                                             <?php echo facetwp_display( 'facet', 'alpika' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'vorauswahl' ); ?>
 
                                         </div>
                                         <div class="second-search-facets">
                                             <?php echo facetwp_display( 'facet', 'schlagworte' ); ?>
                                             <?php echo facetwp_display( 'facet', 'inklusion' ); ?>
-
                                             <?php echo facetwp_display( 'facet', 'organisation' ); ?>
-
                                             <?php echo facetwp_display( 'facet', 'autor' ); ?>
-
                                             <?php echo facetwp_display( 'facet', 'lizenz' ); ?>
                                             <?php echo facetwp_display( 'facet', 'sprache' ); ?>
                                             <?php echo facetwp_display( 'facet', 'verfuegbarkeit' ); ?>
                                             <?php echo facetwp_display( 'facet', 'zugaenglichkeit' ); ?>
                                             <?php echo facetwp_display( 'facet', 'werkzeuge' ); ?>
-
+                                            <?php echo facetwp_display( 'facet', 'erscheinungsjahr' ); ?>
                                         </div>
                                         <div class="advanced-search-facets" style="display:none">
-                                            <?php echo facetwp_display( 'facet', 'erscheinungsjahr' ); ?>
                                             <?php echo facetwp_display( 'facet', 'erfassungsdatum' ); ?>
                                             <?php echo facetwp_display( 'facet', 'bewertung' ); ?>
                                         </div>
