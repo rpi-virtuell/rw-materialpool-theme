@@ -130,6 +130,10 @@ function my_facetwp_facet_html( $output, $params ) {
 	if ( 'alpika_organisation' == $params['facet']['name'] ) {
 		$output = str_replace('>1 <','>ALPIKA <',$output);
 	}
+	if ( 'erscheinungsjahr' == $params['facet']['name'] ) {
+		$output = str_replace('>0 <','>Keine Angabe <',$output);
+	}
+
     return $output;
 }
 
