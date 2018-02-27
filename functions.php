@@ -76,47 +76,47 @@ add_filter( 'facetwp_query_args', 'facetwp_query_args_werkzeug', 10, 2 );
 
 
 function facetwp_query_args_material_verweise( $query_args, $class ) {
-    global $post;
-    if ('material_verweise' == $class->ajax_params['template']) {
-        $query_args['post__in'] = Materialpool_Material::get_verweise_ids();
-    }
-    return $query_args;
+	global $post;
+	if ('material_verweise' == $class->ajax_params['template']) {
+		$query_args = Materialpool_Material::get_verweise_ids();
+	}
+	return $query_args;
 }
-add_filter( 'facetwp_query_args', 'facetwp_query_args_material_verweise', 10, 2 );
+add_filter( 'facetwp_pre_filtered_post_ids', 'facetwp_query_args_material_verweise', 10, 2 );
 
 function facetwp_query_args_themenseiten( $query_args, $class ) {
-    global $post;
-    global $themenseite_material_id_list;
+	global $post;
+	global $themenseite_material_id_list;
+
+	$func = function($value) { return (int) $value;};
 
 	$material_id_list = array();
-    if (defined('REST_REQUEST') && REST_REQUEST) {
+	if (defined('REST_REQUEST') && REST_REQUEST) {
+
+		if ('thema' == $class->ajax_params['template']) {
+			$themenseite =  get_page_by_path( str_replace('themenseite/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'themenseite' );
 
 
+			foreach(Materialpool_Themenseite::get_gruppen($themenseite->ID) as $gruppe){
+				$id_list = array_map( $func, explode( ',', $gruppe[ 'auswahl'] ) );
+				$material_id_list = array_merge($material_id_list, $id_list);
+			}
 
-        if ('thema' == $class->ajax_params['template']) {
-            $themenseite =  get_page_by_path( str_replace('themenseite/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'themenseite' );
+			$query_args = $material_id_list;
+		}
 
+	}elseif ($post->post_type == "themenseite" && !is_embed() ){
 
-            foreach(Materialpool_Themenseite::get_gruppen($themenseite->ID) as $gruppe){
-                $id_list = explode( ',', $gruppe[ 'auswahl'] );
-                $material_id_list = array_merge($material_id_list, $id_list);
-            }
-
-            $query_args['post__in'] = $material_id_list;
-        }
-
-    }elseif ($post->post_type == "themenseite" && !is_embed() ){
-
-	    foreach(Materialpool_Themenseite::get_gruppen($post->ID) as $gruppe){
-		    $id_list = explode( ',', $gruppe[ 'auswahl'] );
-		    $material_id_list = array_merge($material_id_list, $id_list);
-	    }
-	    $query_args['post__in'] = $material_id_list;
-    }
-
-    return $query_args;
+		foreach(Materialpool_Themenseite::get_gruppen($post->ID) as $gruppe){
+			$id_list = array_map( $func, explode( ',', $gruppe[ 'auswahl'] ) );
+			$material_id_list = array_merge($material_id_list, $id_list);
+		}
+		$query_args = $material_id_list;
+	}
+	return $query_args;
 }
-add_filter( 'facetwp_query_args', 'facetwp_query_args_themenseiten', 10, 2 );
+add_filter( 'facetwp_pre_filtered_post_ids', 'facetwp_query_args_themenseiten', 10, 2 );
+
 
 
 
