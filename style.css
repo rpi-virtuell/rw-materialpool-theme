@@ -695,6 +695,9 @@ div.material-suche .facetwp-btn:hover{
 
 .facet-treffer {
     margin-top: 20px;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
 }
 .facet-treffer-mediatyps {
     font-size: 8px;
