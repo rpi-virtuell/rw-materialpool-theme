@@ -388,6 +388,7 @@ div.material-detail-image, .material-detail .materialpool-template-material-pict
 .material-detail-image{
     border: 1px solid lightsteelblue;
     margin-bottom: 20px;
+    font-size: 0.8em;
 }
  /* description column items */
 
