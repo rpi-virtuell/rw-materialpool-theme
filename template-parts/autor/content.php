@@ -55,6 +55,9 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div class="material-detail-buttons material-column">
                 <?php Materialpool_Autor::autor_request_button(); ?>
             </div>
+            <div class="material-detail-buttons material-column">
+		        <?php Materialpool_Autor::autor_request_button2(); ?>
+            </div>
         </div>
         <div class="autor-content">
 
