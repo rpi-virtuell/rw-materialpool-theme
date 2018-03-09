@@ -28,6 +28,9 @@ get_header( 'materialpool' ); ?>
                                     </div>
                                 </div>
                                 <div class="material-resultcontainer">
+                                    <div class="right material-detail-buttons material-column">
+		                                <?php Materialpool_Autor::autor_request_button2(); ?>
+                                    </div>
                                     <div class="material-suche">
 										<?php echo facetwp_display( 'facet', 'autor_suche' ); ?>
                                     </div>
