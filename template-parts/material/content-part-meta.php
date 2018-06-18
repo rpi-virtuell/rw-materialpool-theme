@@ -8,7 +8,7 @@
 ?>
 <?php if(Materialpool_Material::is_special()):?>
     <div class="materialpool-special-logo">
-        rpi-virtuell special<br>
+        rpi-virtuell Dossier<br>
 
     </div>
     <div class="clear"></div>
