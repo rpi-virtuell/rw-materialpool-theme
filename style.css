@@ -247,7 +247,7 @@ div.organisation-left .organisation-image{
     width:103%;
     background-size: contain;
     background-position: left center;
-
+    margin-bottom: 20px;
 }
 
 div.organisation-left .image-alt, .autor-left .image-alt{
