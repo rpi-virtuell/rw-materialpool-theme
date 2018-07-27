@@ -46,7 +46,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php Materialpool_Organisation::top_orga_html(); ?><br>
                 </div>
             <?php } ?>
-	        <?php if ( count( Materialpool_Organisation::get_bottom_orga_ids() ) > 0 ) { ?>
+	        <?php $a = Materialpool_Organisation::get_bottom_orga_ids(); if ( $a[0] > 0 ) { ?>
                 <div class="organisation-bottom-orga" >
                     Zu dieser Organisation gehören auch:<br>
 			        <?php Materialpool_Organisation::bottom_orga_html(); ?><br>
