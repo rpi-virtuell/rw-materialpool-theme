@@ -40,8 +40,18 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php Materialpool_Organisation::title();?>
                 </h2>
             <?php endif;?>
-
-
+            <?php if ( Materialpool_Organisation::get_top_orga_id() !== false ) { ?>
+                <div class="organisation-top-orga" >
+                    Diese Organisation ist Teil von:<br>
+                    <?php Materialpool_Organisation::top_orga_html(); ?><br>
+                </div>
+            <?php } ?>
+	        <?php if ( count( Materialpool_Organisation::get_bottom_orga_ids() ) > 0 ) { ?>
+                <div class="organisation-bottom-orga" >
+                    Zu dieser Organisation gehören auch:<br>
+			        <?php Materialpool_Organisation::bottom_orga_html(); ?><br>
+                </div>
+	        <?php } ?>
             <div class="first-search-facets">
                 <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
                 <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
