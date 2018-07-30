@@ -7,9 +7,7 @@
  */
 ?>
 <?php if(Materialpool_Material::is_special()):?>
-    <div class="materialpool-special-logo">
-        rpi-virtuell Dossier<br>
-
+    <div class="materialpool-special-logo">Dossier<br>
     </div>
     <div class="clear"></div>
 <?php endif;?>
@@ -38,6 +36,14 @@
 
         <?php if(Materialpool_Material::has_organisation()): ?>
             <?php Materialpool_Material::organisation_html_cover(); ?>
+            <?php $o = Materialpool_Material::get_organisation(); ?>
+            <?php $oid = Materialpool_Organisation::get_top_orga_id( $o[ 0 ][ 'ID' ] ); ?>
+            <?php if ( $oid !== false ) { ?>
+                <div class="organisation-top-orga" >
+                    Diese Organisation ist Teil von:<br>
+			        <?php Materialpool_Organisation::top_orga_html( $oid ); ?><br>
+                </div>
+	        <?php } ?>
         <?php endif;?>
         <?php if( Materialpool_Material::has_autor() ):?>
             <?php Materialpool_Material::autor_html_picture(); ?>
