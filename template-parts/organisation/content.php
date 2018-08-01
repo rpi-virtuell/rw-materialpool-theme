@@ -42,13 +42,13 @@ if ( ! defined( 'ABSPATH' ) ) {
             <?php endif;?>
             <?php if ( Materialpool_Organisation::get_top_orga_id() !== false ) { ?>
                 <div class="organisation-top-orga" >
-                    Diese Organisation ist Teil von:<br>
+                    Diese Seite ist Teil von:<br>
                     <?php Materialpool_Organisation::top_orga_html(); ?><br>
                 </div>
             <?php } ?>
 	        <?php $a = Materialpool_Organisation::get_bottom_orga_ids(); if ( $a[0] > 0 ) { ?>
                 <div class="organisation-bottom-orga" >
-                    Zu dieser Organisation gehören auch:<br>
+                    Zu dieser Seite gehören auch:<br>
 			        <?php Materialpool_Organisation::bottom_orga_html(); ?><br>
                 </div>
 	        <?php } ?>

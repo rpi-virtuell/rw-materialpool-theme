@@ -40,7 +40,7 @@
             <?php $oid = Materialpool_Organisation::get_top_orga_id( $o[ 0 ][ 'ID' ] ); ?>
             <?php if ( $oid !== false ) { ?>
                 <div class="organisation-top-orga" >
-                    Diese Organisation ist Teil von:<br>
+                    Diese Seite ist Teil von:<br>
 			        <?php Materialpool_Organisation::top_orga_html( $oid ); ?><br>
                 </div>
 	        <?php } ?>
