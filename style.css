@@ -699,6 +699,11 @@ div.material-suche .facetwp-btn:hover{
     margin-top: 30px;
 }
 
+.material-detail-description-footer {
+    font-size: 84%;
+    font-style: italic;
+
+}
 
 
 /* facetts */
