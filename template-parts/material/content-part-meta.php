@@ -67,11 +67,16 @@
     <?php endif; ?>
 </div>
 
-<?php if(!Materialpool_Material::is_special() && Materialpool_Material::get_availability() != ''): ?>
+<?php if(!Materialpool_Material::is_special() && ( Materialpool_Material::get_availability() != '' || Materialpool_Material::get_lizenz() != '' )): ?>
     <div class="material-detail-meta-access material-meta">
         <h4>Verfügbarkeit</h4>
         <div class="material-meta-content-entry">
-            <?php Materialpool_Material::availability(); ?>
+	        <?php if(  Materialpool_Material::get_lizenz() != '' ): ?>
+                <?php Materialpool_Material::lizenz(); ?>
+	        <?php endif;?>
+	        <?php if( Materialpool_Material::get_availability() != ''): ?>
+		        <?php Materialpool_Material::availability(); ?>
+	        <?php endif;?>
         </div>
     </div>
 <?php endif;?>
