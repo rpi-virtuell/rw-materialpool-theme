@@ -33,9 +33,6 @@
                                             <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
                                             <?php echo facetwp_display( 'facet', 'alpika' ); ?>
                                             <?php echo facetwp_display( 'facet', 'vorauswahl' ); ?>
-
-                                        </div>
-                                        <div class="second-search-facets">
                                             <?php echo facetwp_display( 'facet', 'schlagworte' ); ?>
                                             <?php echo facetwp_display( 'facet', 'inklusion' ); ?>
                                             <?php echo facetwp_display( 'facet', 'organisation' ); ?>
