@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                     <?php Materialpool_Autor::picture_html(); ?><br>
                     <?php Materialpool_Autor::firstname();?> <?php Materialpool_Autor::lastname();?>
                     <?php if ( Materialpool_Autor::get_picture() != '' ) { ?>
-                    <br><p style="font-size: 0.8em; max-width: 200px; word-wrap:break-word;">Bildquelle: <?php echo Materialpool_Autor::get_picture(); ?></p>
+                        <br><p style="font-size: 0.8em; max-width: 200px; word-wrap:break-word;"><a href="<?php echo Materialpool_Autor::get_picture(); ?>">Bildquelle</a></p>
                     <?php } ?>
                 </div>
             <?php else:?>
