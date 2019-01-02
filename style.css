@@ -7,7 +7,7 @@ Author URI: https://staude.net
 Description: Theme für den rpi-materialpool
 GitHub Theme URI: https://github.com/rpi-virtuell/rw-materialpool-theme
 GitHub Branch:  master
-Version: 1.1.2
+Version: 1.1.3
 
 */
 
@@ -702,7 +702,6 @@ div.material-suche .facetwp-btn:hover{
 .material-detail-description-footer {
     font-size: 84%;
     font-style: italic;
-
 }
 
 
