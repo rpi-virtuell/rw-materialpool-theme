@@ -247,7 +247,7 @@ div.organisation-left .organisation-image{
     width:103%;
     background-size: contain;
     background-position: left center;
-
+    margin-bottom: 30px;
 }
 
 div.organisation-left .image-alt, .autor-left .image-alt{
@@ -443,6 +443,7 @@ div.material-detail-image, .material-detail .materialpool-template-material-pict
     color: #666;
     font-size: 130%;
     font-weight: bolder;
+    margin-top: 30px;
 }
 
 .material-links h4{
