@@ -31,7 +31,7 @@
 
 <div class="material-detail-meta-author material-meta">
     <?php if(Materialpool_Material::has_organisation() || Materialpool_Material::has_autor() ): ?>
-        <h4>Herkunft</h4>
+        <h4>Herkunft des Materials</h4>
         <div class="material-meta-content-entry">
 
         <?php if(Materialpool_Material::has_organisation()): ?>
