@@ -18,7 +18,6 @@
 			    if ( $ar === false ) return;
 			    $args = array(
 				    'post__in'                      => $ar,
-				    'post__not_in'          => array( $post->ID),
 				    'post_type'              => array( 'material' ),
                     'posts_per_page'        => 100,
 
@@ -81,7 +80,6 @@
 			    if ( $ar === false ) return;
 			    $args = array(
 				    'post__in'                      => $ar,
-				    'post__not_in'          => array( $post->ID),
 				    'post_type'              => array( 'material' ),
 				    'posts_per_page'        => 100,
 			    );
