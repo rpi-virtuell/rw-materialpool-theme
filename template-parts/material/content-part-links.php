@@ -14,6 +14,7 @@
             <div class="facetwp-template">
 			    <?php
 			    $ar = Materialpool_Material::get_verweise_ids();
+			    global $post;
 			    if ( $ar === false ) return;
 			    $args = array(
 				    'post__in'                      => $ar,
@@ -76,6 +77,7 @@
             <div class="facetwp-template">
 			    <?php
 			    $ar = Materialpool_Material::volumes_ids();
+			    global $post;
 			    if ( $ar === false ) return;
 			    $args = array(
 				    'post__in'                      => $ar,
