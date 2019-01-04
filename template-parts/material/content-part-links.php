@@ -17,7 +17,10 @@
 			    if ( $ar === false ) return;
 			    $args = array(
 				    'post__in'                      => $ar,
+				    'post__not_in'          => array( $post->ID),
 				    'post_type'              => array( 'material' ),
+                    'posts_per_page'        => 100,
+
 			    );
 			    $my_query = new WP_Query( $args );
 			    while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
@@ -76,7 +79,9 @@
 			    if ( $ar === false ) return;
 			    $args = array(
 				    'post__in'                      => $ar,
+				    'post__not_in'          => array( $post->ID),
 				    'post_type'              => array( 'material' ),
+				    'posts_per_page'        => 100,
 			    );
 			    $my_query = new WP_Query( $args );
 			    while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
