@@ -57,7 +57,7 @@
             <?php echo  Materialpool_Material::cover_facet_html_noallign(); ?>
             <?php
             if ( Materialpool_Material::get_picture_source() != '' ) {
-                echo "<a href='".Materialpool_Material::get_picture_source() . ">Bildquelle</a>" ;
+                echo "<a href='".Materialpool_Material::get_picture_source() . "'>Bildquelle</a>" ;
             }
             ?>
             </div>
