@@ -88,14 +88,7 @@
         </div>
     </div>
 <?php endif;?>
-<?php if( Materialpool_Material::get_lizenz() != ''): ?>
-    <div class="material-detail-meta-access material-meta">
-        <h4>Lizenz</h4>
-        <div class="material-meta-content-entry">
-			<?php Materialpool_Material::lizenz(); ?>
-        </div>
-    </div>
-<?php endif;?>
+
 
 <div class="material-meta" style="clear: both;height:10px;"></div>
 <div class="material-detail-meta-ticker material-meta">
