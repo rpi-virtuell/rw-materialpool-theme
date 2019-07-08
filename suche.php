@@ -30,6 +30,7 @@
                                     <div class="mfacet-wrap">
                                         <div class="first-search-facets">
                                             <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
+                                            <?php echo facetwp_display( 'facet', 'kompetenzen' ); ?>
                                             <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
                                             <?php echo facetwp_display( 'facet', 'alpika' ); ?>
                                             <?php echo facetwp_display( 'facet', 'vorauswahl' ); ?>
