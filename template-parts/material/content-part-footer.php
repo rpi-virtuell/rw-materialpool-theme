@@ -8,7 +8,7 @@
 ?>
 <div class="material-detail-schlagworte material-footer">
     Schlagworte: <?php echo Materialpool_Material::get_schlagworte_html( "/facettierte-suche/"); ?>
-    <?php if ( Materialpool_Material::get_jahr() != '' ) :?>
+    <?php if ( Materialpool_Material::get_jahr() != '' && Materialpool_Material::get_jahr() != 0   ) :?>
         , <a href="/facettierte-suche/?fwp_erscheinungsjahr=<?php echo Materialpool_Material::get_jahr(); ?>"><?php echo Materialpool_Material::get_jahr(); ?></a>
     <?php endif; ?>
 	<?php if ( Materialpool_Material::get_inklusion() != '' ) :?>
