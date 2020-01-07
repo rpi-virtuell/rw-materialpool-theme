@@ -98,7 +98,7 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
 
 
 			foreach(Materialpool_Themenseite::get_gruppen($themenseite->ID) as $gruppe){
-				$id_list = array_map( $func, explode( ',', $gruppe[ 'auswahl'] ) );
+				$id_list = array_map( $func, $gruppe[ 'auswahl'] );
 				$material_id_list = array_merge($material_id_list, $id_list);
 			}
 
@@ -108,7 +108,7 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
 	}elseif ($post->post_type == "themenseite" && !is_embed() ){
 
 		foreach(Materialpool_Themenseite::get_gruppen($post->ID) as $gruppe){
-			$id_list = array_map( $func, explode( ',', $gruppe[ 'auswahl'] ) );
+			$id_list = array_map( $func, $gruppe[ 'auswahl']  );
 			$material_id_list = array_merge($material_id_list, $id_list);
 		}
 		$query_args = $material_id_list;
