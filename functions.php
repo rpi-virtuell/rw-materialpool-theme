@@ -289,13 +289,13 @@ function facetwp_query_args_embed( $query_args, $class ) {
 			if ( 'iframe' == $class->ajax_params['http_params']['get']['mpembed'] && $object != '' && $value != 0 ) {
 				if ( $object == 'autor' ) {
 					$query_args['meta_query'][] = array(
-						'key'   => 'material_autoren',
+						'key'   => 'material_autoren_facet_view',
 						'value' => $value,
 					);
 				}
 				if ( $object == 'organisation' ) {
 					$query_args['meta_query'][] = array(
-						'key'   => 'material_organisation',
+						'key'   => 'material_organisation_facet_view',
 						'value' => $value,
 					);
 				}
@@ -309,13 +309,13 @@ function facetwp_query_args_embed( $query_args, $class ) {
 			if ( 'iframe' == $wp_query->query_vars['mpembed'] && $object != '' && $value != 0 ) {
 				if ( $object == 'autor' ) {
 					$query_args['meta_query'][] = array(
-						'key'   => 'material_autoren',
+						'key'   => 'material_autoren_facet_view',
 						'value' => $value,
 					);
 				}
 				if ( $object == 'organisation' ) {
 					$query_args['meta_query'][] = array(
-						'key'   => 'material_organisation',
+						'key'   => 'material_organisation_facet_view',
 						'value' => $value,
 					);
 				}
