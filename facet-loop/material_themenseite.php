@@ -15,7 +15,7 @@
 
         $query = $wp_query->query_vars;
 
-        $themenseite_material_id_list = explode( ',', $gruppe['auswahl'] );
+        $themenseite_material_id_list =  $gruppe['auswahl'];
 
         $themenseite_material_id_list = array_intersect($themenseite_material_id_list,$query['post__in']);
 
