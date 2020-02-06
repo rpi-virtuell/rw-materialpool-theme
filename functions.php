@@ -330,7 +330,7 @@ add_filter( 'facetwp_query_args', 'facetwp_query_args_embed', 10, 2 );
 
 function remove_admin_bar() {
 
-	if ( 'iframe' == $_GET[ 'mpembed'] ) {
+	if ( isset( $_GET[ 'mpembed'] ) && 'iframe' == $_GET[ 'mpembed'] ) {
 		show_admin_bar( false );
 	}
 }
