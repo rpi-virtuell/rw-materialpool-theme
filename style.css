@@ -926,7 +926,7 @@ div.accordion h2{
 }
 
 .ui-accordion .ui-accordion-header{
-    padding: .5em .5em .5em 1.7em;
+    padding: .5em .5em .5em 1.7em !important;
     margin: 0px 0px 6px 0px ;
     font-family: 'Roboto','Open Sans',  sans-serif;
     font-weight: 400;
