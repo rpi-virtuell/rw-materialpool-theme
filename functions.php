@@ -108,6 +108,7 @@ function facetwp_query_args_themenseiten( $query_args, $class ) {
 	}elseif ($post->post_type == "themenseite" && !is_embed() ){
 
 		foreach(Materialpool_Themenseite::get_gruppen($post->ID) as $gruppe){
+			if ( ! $gruppe[ 'auswahl'] ) continue;
 			$id_list = array_map( $func, $gruppe[ 'auswahl']  );
 			$material_id_list = array_merge($material_id_list, $id_list);
 		}
