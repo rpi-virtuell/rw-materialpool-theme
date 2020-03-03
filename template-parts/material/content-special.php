@@ -79,7 +79,7 @@
             </div>
             <div class="material-detail-description material-desc">
                 <?php
-                $value =Materialpool_Material::get_description();
+                $value =nl2br(Materialpool_Material::get_description());
                 $embed = $GLOBALS[ 'wp_embed' ];
                 $value = $embed->run_shortcode( $value );
                 $value = $embed->autoembed( $value );
