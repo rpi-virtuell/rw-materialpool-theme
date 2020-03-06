@@ -57,7 +57,18 @@
             <?php echo  Materialpool_Material::cover_facet_html_noallign(); ?>
             <?php
             if ( Materialpool_Material::get_picture_source() != '' ) {
-                echo "<a href='".Materialpool_Material::get_picture_source() . "'>Bildquelle</a>" ;
+                if ( Materialpool_Material::get_picture_url() != '') {
+	                echo  "Bildquelle: <a href='". Materialpool_Material::get_picture_url() ."'>".Materialpool_Material::get_picture_source()."</a>";
+                } else {
+	                echo  "Bildquelle: ".Materialpool_Material::get_picture_source();
+                }
+            } else {
+                if ( Materialpool_Material::get_picture_url() != '') {
+                    $host = parse_url(Materialpool_Material::get_picture_url() );
+
+                    if ( $host[ 'host' ] )
+	                echo  "Bildquelle: <a href='". Materialpool_Material::get_picture_url() ."'>". $host[ 'host' ] ."</a>";
+                }
             }
             ?>
             </div>
