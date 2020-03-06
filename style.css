@@ -445,7 +445,7 @@ div.material-detail-image, .material-detail .materialpool-template-material-pict
 
 
 .material-links, .material-desc {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 .material-detail-shortdescription {
     color: #666;
@@ -458,7 +458,7 @@ div.material-detail-image, .material-detail .materialpool-template-material-pict
     font-weight: 400;
 }
 .viewerjsurlmeta {
-    margin: -30px 5px 2px;
+    margin: -30px 5px 25px;
 }
 
 .material-column a.cta-button {
