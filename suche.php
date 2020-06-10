@@ -52,11 +52,18 @@
                                     </div>
                                 </div>
                                 <div class="material-resultcontainer">
+	                                <?php if ( is_user_logged_in()) { ?>
+                                    <div class="mpshortcodegeneration-container"><button class="mpshortcodegeneration" title="[ ]">[ ]
+                                    <input type="text" id="mpshortcode" style="position: absolute; z-index: -999; opacity: 0;"></div>
+                                    <div class="clear"></div>
+	                                <?php } ?>
                                     <div class="material-suche">
                                         <?php echo facetwp_display( 'facet', 'suche' ); ?>
                                     </div>
                                     <div class="clear"></div>
                                     <div class="material-selection"><?php echo facetwp_display( 'selections' ); ?></div>
+                                    <div class="clear"></div>
+
                                     <div>
                                         <div class="material-counter">
                                             <?php echo facetwp_display( 'counts' ); ?> Treffer

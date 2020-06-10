@@ -1019,3 +1019,7 @@ footer, footer a, footer h2.widget-title{
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.mpshortcodegeneration-container {
+    float: right;
+}

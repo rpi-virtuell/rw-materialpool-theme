@@ -1,6 +1,30 @@
 /**
  * Created by Joachim on 03.02.2017.
  */
+
+function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+
+function copyToClipboard(element) {
+    var $temp = jQuery("<input>");
+    jQuery("body").append($temp);
+    $temp.val(jQuery(element).text()).select();
+    document.execCommand("copy");
+    $temp.remove();
+}
+
 jQuery(document).ready(function ($) {
 
     var baseUrl = location.href;
@@ -78,5 +102,97 @@ jQuery(document).ready(function ($) {
             else
                 jQuery(this).attr("href",currHref+"?sq="+ encodeURIComponent(window.location));
         });
+    });
+
+    jQuery('.mpshortcodegeneration').on('click', function () {
+        var auswahl=false;
+        var querystring = "";
+
+        var search = getUrlParameter('fwp_suche');
+        if ( typeof search != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " suche='" + search + "' ";
+        }
+        var bildungsstufe = getUrlParameter('fwp_bildungsstufe');
+        if ( typeof bildungsstufe != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " bildungsstufe='" + bildungsstufe + "' ";
+        }
+        var kompetenzen = getUrlParameter('fwp_kompetenzen');
+        if ( typeof kompetenzen != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " kompetenz='" + kompetenzen + "' ";
+        }
+        var medientyp = getUrlParameter('fwp_medientyp');
+        if ( typeof medientyp != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " medientyp='" + medientyp + "' ";
+        }
+        var alpika = getUrlParameter('fwp_alpika');
+        if ( typeof alpika != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " alpika='" + alpika + "' ";
+        }
+        var vorauswahl = getUrlParameter('fwp_vorauswahl');
+        if ( typeof vorauswahl != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " vorauswahl='" + vorauswahl + "' ";
+        }
+        var schlagworte = getUrlParameter('fwp_schlagworte');
+        if ( typeof schlagworte != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " schlagworte='" + schlagworte + "' ";
+        }
+        var inklusion = getUrlParameter('fwp_inklusion');
+        if ( typeof inklusion != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " inklusion='" + inklusion + "' ";
+        }
+        var organisation = getUrlParameter('fwp_organisation');
+        if ( typeof organisation != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " organisation='" + organisation + "' ";
+        }
+        var sprache = getUrlParameter('fwp_sprache');
+        if ( typeof sprache != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " sprache='" + sprache + "' ";
+        }
+        var autor = getUrlParameter('fwp_autor');
+        if ( typeof autor != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " autor='" + autor + "' ";
+        }
+        var lizenz = getUrlParameter('fwp_lizenz');
+        if ( typeof lizenz != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " lizenz='" + lizenz + "' ";
+        }
+        var verfuegbarkeit = getUrlParameter('fwp_verfuegbarkeit');
+        if ( typeof verfuegbarkeit != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " verfuegbarkeit='" + verfuegbarkeit + "' ";
+        }
+        var zugaenglichkeit = getUrlParameter('fwp_zugaenglichkeit');
+        if ( typeof zugaenglichkeit != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " zugaenglichkeit='" + zugaenglichkeit + "' ";
+        }
+        var erscheinungsjahr = getUrlParameter('fwp_erscheinungsjahr');
+        if ( typeof erscheinungsjahr != 'undefined') {
+            auswahl = true;
+            querystring = querystring + " erscheinungsjahr='" + erscheinungsjahr + "' ";
+        }
+        if (auswahl == false) {
+            alert( 'Es wurde keine Einschränkung vorgenommen,');
+        } else {
+            jQuery('#mpshortcode').val( "[materialliste " + querystring + "]" );
+            var copyText = jQuery('#mpshortcode');
+            copyText.select();
+            document.execCommand("copy");
+
+            alert("Der Shortcode ist in die Zwischenablage kopiert.");
+
+        }
     });
 });
