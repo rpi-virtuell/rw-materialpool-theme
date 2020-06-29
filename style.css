@@ -724,6 +724,7 @@ div.material-suche .facetwp-btn:hover{
     font-size: 8px;
     padding-right: 5px;
     padding-top: 5px;
+    width: 100%;
 }
 
 .facet-treffer-mediatyps ul {

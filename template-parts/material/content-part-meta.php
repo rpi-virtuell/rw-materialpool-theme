@@ -23,6 +23,10 @@
         </span>
 
     <?php } ?>
+    <div style="float: right;">
+        <span id="themenseitenedit_<?php echo $post->ID; ?>" data-materialid="<?php echo $post->ID; ?>" data-materialtitel="<?php echo $post->post_title; ?>" data-materialurl="<?php echo get_permalink( $post->ID) ; ?>"class="themenseitenedit btn-neutral"><i class="fas fa-ellipsis-v"> </i></span>
+    </div>
+    <div style="clear: both;"></div>
 </div>
 <div class="material-detail-meta-rating material-meta">
     <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
