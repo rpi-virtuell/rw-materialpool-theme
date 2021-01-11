@@ -106,7 +106,9 @@
         <footer class="material-detail-footer">
             <?php  get_template_part('template-parts/material/content-part-footer', get_post_format()); ?>
         </footer>
-
+        <div class="entry-content material-detail">
+			<?php  get_template_part('template-parts/material/content-part-children', get_post_format()); ?>
+        </div>
 
     </div>
 </article><!-- #post-## -->
