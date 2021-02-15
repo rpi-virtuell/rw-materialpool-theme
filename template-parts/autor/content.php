@@ -82,10 +82,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
         </div>
         <div class="autor-right material-meta-container">
-            <div class="material-detail-meta-author material-meta">
-                <h4>Wirkungsbereich</h4>
+	        <?php if(Materialpool_Autor::has_organisationen()): ?>
+                <div class="material-detail-meta-author material-meta">
+                    <h4>Wirkungsbereich</h4>
                     <?php Materialpool_Autor::organisation_html_cover(); ?>
-            </div>
+                </div>
+            <?php endif;?>
             <?php if(($n=Materialpool_Autor::get_count_posts_per_autor())>4):?>
                 <?php
                     if($n>=5){

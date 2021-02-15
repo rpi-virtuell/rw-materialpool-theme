@@ -153,6 +153,16 @@ span.thema-title a{
     -webkit-box-sizing: border-box;
     box-shadow: 2px 2px 4px 0 #ccc;
 }
+.material-suche .facetwp-icon{
+    height: 30px;
+    line-height: 1;
+    position: relative;
+    cursor: pointer;
+    opacity: 0.5;
+    top: 40px;
+    z-index: 1;
+    float: right;
+}
 /* single-themenseite  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 .themenseite-gruppe .material-results{
@@ -282,7 +292,7 @@ div.organisation-left .image-alt, .autor-left .image-alt{
 }
 
 .organisation-right{
-    flex: 0 13%;
+    flex: 0 18%;
 }
 /* single autor ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
@@ -649,7 +659,7 @@ img.materialpool-template-material-autor-logo{
 
 /** Suchfeld  */
 div.material-suche{
-    width:94%;
+    width:100%;
 }
 h5.facet-label.suche{
     display:none;
@@ -1013,7 +1023,7 @@ footer, footer a, footer h2.widget-title{
 }
 
 .material-detail-description ul, ol {
-	padding-left: 20px;	
+	padding-left: 20px;
 }
 
 .organisation-top-orga {
@@ -1021,6 +1031,11 @@ footer, footer a, footer h2.widget-title{
     padding-bottom: 10px;
 }
 
-.mpshortcodegeneration-container {
-    float: right;
+.mpshortcodegeneration {
+    /*float: right;*/
+    clear: both;
+    width: 100%;
+
 }
+
+

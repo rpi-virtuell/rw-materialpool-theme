@@ -49,14 +49,22 @@
                                             <?php echo facetwp_display( 'facet', 'erfassungsdatum' ); ?>
                                             <?php echo facetwp_display( 'facet', 'bewertung' ); ?>
                                         </div>
+                                        <div>
+	                                        <?php if ( is_user_logged_in()) { ?>
+                                                <div class="mpshortcodegeneration-container">
+                                                    <h5>Material-Liste Einbetten</h5>
+                                                    <button class="mpshortcodegeneration" title="[ shortcode ]">[ copy code ]</button>
+                                                    <input type="text" id="mpshortcode" style="position: absolute; z-index: -999; opacity: 0;">
+                                                    Teilen: Mit diesem <a href="https://github.com/rpi-virtuell/rpi-virtuell-materialliste">Wordpress Plugin</a> kannst du diese Auswahl in deiner Seite anzeigen
+                                                </div>
+
+                                                <div class="clear"></div>
+	                                        <?php } ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="material-resultcontainer">
-	                                <?php if ( is_user_logged_in()) { ?>
-                                    <div class="mpshortcodegeneration-container"><button class="mpshortcodegeneration" title="[ ]">[ ]
-                                    <input type="text" id="mpshortcode" style="position: absolute; z-index: -999; opacity: 0;"></div>
-                                    <div class="clear"></div>
-	                                <?php } ?>
+
                                     <div class="material-suche">
                                         <?php echo facetwp_display( 'facet', 'suche' ); ?>
                                     </div>
@@ -81,7 +89,7 @@
                                     <div class="material-pager"><?php echo facetwp_display( 'pager' ); ?></div></div><div id="page-loader"></div>
                                 </div>
                             </div>
-                        </main>
+	                    </main>
                     </div>
                 </div>
             </main>

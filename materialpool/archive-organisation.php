@@ -41,7 +41,6 @@ get_header( 'materialpool' ); ?>
                                         <div class="material-pager">
 											<?php echo facetwp_display( 'pager' ); ?>
                                         </div>
-
                                     </div>
                                     <div class="clear"></div>
                                     <div class="material-results"><?php echo facetwp_display( 'template', 'organisation' ); ?></div>

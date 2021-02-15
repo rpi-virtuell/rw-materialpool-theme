@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Suche
+ * Template Name: Autoren Suche
  * Template Post Type: page
  *
  * @version 1.0

@@ -33,14 +33,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <?php if(Materialpool_Organisation::get_logo()):?>
                 <div class="organisation-image" style="background-image: url('<?php echo Materialpool_Organisation::get_logo(); ?>'); background-repeat: no-repeat; ">
-                    <img src="<?php echo Materialpool_Organisation::get_logo(); ?>" sytle="opacity:0">
+                    <img src="<?php echo Materialpool_Organisation::get_logo(); ?>" style="opacity:0">
                 </div>
             <?php else:?>
                 <h2 class="image-alt">
                     <?php Materialpool_Organisation::title();?>
                 </h2>
             <?php endif;?>
-            <?php if ( Materialpool_Organisation::get_top_orga_id() !== false ) { ?>
+            <?php /*
+                if ( Materialpool_Organisation::get_top_orga_id() !== false ) { ?>
                 <div class="organisation-top-orga" >
                     Diese Seite ist Teil von:<br>
                     <?php Materialpool_Organisation::top_orga_html(); ?><br>
@@ -51,7 +52,8 @@ if ( ! defined( 'ABSPATH' ) ) {
                     Zu dieser Seite gehören auch:<br>
 			        <?php Materialpool_Organisation::bottom_orga_html(); ?><br>
                 </div>
-	        <?php } ?>
+	        <?php }
+            */ ?>
             <div class="first-search-facets">
                 <?php echo facetwp_display( 'facet', 'bildungsstufe' ); ?>
                 <?php echo facetwp_display( 'facet', 'medientyp' ); ?>
@@ -60,8 +62,8 @@ if ( ! defined( 'ABSPATH' ) ) {
             <div>
                 <?php if(Materialpool_Organisation::is_alpika()):?>
                     <p><img class="alpika-logo" src="http://material.rpi-virtuell.de/wp-content/plugins/rw-materialpool//assets/alpika.png">
-                        <?php Materialpool_Organisation::title();?> ist Teil der 
-						<a href="http://www.relinet.de/alpika.html">Arbeitsgemeinschaft</a> 
+                        <?php Materialpool_Organisation::title();?> ist Teil der
+						<a href="http://www.relinet.de/alpika.html">Arbeitsgemeinschaft</a>
 						der Pädagogischen Institute und Katechetischen Ämter
                         <img class="ekd-logo" src="https://datenschutz.ekd.de/wp-content/uploads/2015/01/EKD-Logo.png">
                         in der Evangelischen Kirche in Deutschland.
@@ -77,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
             <div class="material-detail-buttons material-column">
                 <a class="cta-button" href="<?php echo Materialpool_Organisation::get_url(); ?>">Homepage der Einrichtung</a>
-				
+
             </div>
 
         </div>
@@ -106,7 +108,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <?php if(Materialpool_Organisation::get_autor()[0]):?>
         <div class="organisation-right material-meta-container">
             <div class="material-detail-meta-author material-meta">
-                <h4>Zugehörige Autorinnen und Autoren</h4>
+                <h4>Autor:innen</h4>
                 <?php Materialpool_Organisation::autor_html_picture(); ?>
             </div>
         </div>

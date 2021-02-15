@@ -33,16 +33,32 @@ add_action('wp_enqueue_scripts','enqueue_our_required_stylesheets');
 function facetwp_query_args_autor( $query_args, $class ) {
     global $post;
 
-    if ( defined('REST_REQUEST') && REST_REQUEST ) {
+    if(strpos($class->ajax_params['http_params']['uri'],'autor/') === false){
+	    return $query_args;
+    }
+
+	$autor =  get_page_by_path( str_replace('autor/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'autor' );
+
+	$material_ids = get_post_meta($autor->ID, 'material_autoren',true);
+
+	if(isset($query_args['meta_query']))  unset($query_args['meta_query']);
+
+	$query_args["post__in"] = $material_ids;
+
+
+	/*
+	if ( defined('REST_REQUEST') && REST_REQUEST ) {
           if ( 'material_autor' == $class->ajax_params['template'] ) {
             $autor =  get_page_by_path( str_replace('autor/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'autor' );
             $query_args['meta_query'][0][ 'value'] = (string)$autor->ID;
         }
     } else {
         if ( 'material_autor' == $class->ajax_params['template'] ) {
+
             $query_args['meta_query'][0][ 'value'] = (string)$post->ID;
         }
     }
+	*/
     return $query_args;
 }
 
