@@ -36,15 +36,18 @@ function facetwp_query_args_autor( $query_args, $class ) {
     if(strpos($class->ajax_params['http_params']['uri'],'autor/') === false){
 	    return $query_args;
     }
+	if ( 'material_autor' == $class->ajax_params['template'] ) {
 
-	$autor =  get_page_by_path( str_replace('autor/','',$class->ajax_params['http_params']['uri']) , OBJECT, 'autor' );
+		$autor = get_page_by_path( str_replace( 'autor/', '', $class->ajax_params['http_params']['uri'] ), OBJECT, 'autor' );
 
-	$material_ids = get_post_meta($autor->ID, 'material_autoren',true);
+		$material_ids = get_post_meta( $autor->ID, 'material_autoren', true );
 
-	if(isset($query_args['meta_query']))  unset($query_args['meta_query']);
+		if ( isset( $query_args['meta_query'] ) ) {
+			unset( $query_args['meta_query'] );
+		}
 
-	$query_args["post__in"] = $material_ids;
-
+		$query_args["post__in"] = $material_ids;
+	}
 
 	/*
 	if ( defined('REST_REQUEST') && REST_REQUEST ) {
