@@ -15,7 +15,7 @@ global $post;
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
                 <div class="startseite-block-header">
-                    <p>Unsere Themen</p>
+                    <p>Unsere Themenseiten</p>
                     <div class="startseite-block-content">
                         <?php
                        echo rw_material_get_themenliste();
