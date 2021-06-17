@@ -14,26 +14,17 @@ global $post;
     <div class="wrap">
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
-                <?php
-                $show_title = get_field( 'show_title');
-                if ( $show_title == 1 ) {
-                ?>
                 <div class="startseite-block-header">
-                    <p><?php
-	                    $startseite_title = get_field( 'startseite_title' );
-	                    echo do_shortcode( $startseite_title );
-	                    ?></p>
+                    <p>Unsere Themen</p>
                     <div class="startseite-block-content">
                         <?php
-                        $freitext = get_field( 'startseite_freitext' );
-                        echo do_shortcode( $freitext );
+                       echo rw_material_get_themenliste();
                         ?>
                     </div>
                 </div>
-                <?php
-                }
-                ?>
+
                 <div class="clear"></div>
+
 
 	            <?php
 	            $show_aktuell = get_field( 'show_aktuell' );

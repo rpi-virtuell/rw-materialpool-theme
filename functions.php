@@ -5,6 +5,32 @@ if ( !defined( 'ABSPATH' ) ) exit;
 // BEGIN ENQUEUE PARENT ACTION
 // AUTO GENERATED - Do not modify or remove comment markers above or below:
 
+
+function rw_material_get_themenliste(){
+
+	$links =[];
+
+	$args = array(
+		"post_type" => "themenseite",
+		"post_status" => "publish",
+		"orderby" => "title",
+		"order" => "ASC",
+		"posts_per_page" => 1000,
+	);
+	$themen = get_posts($args);
+
+	foreach ($themen as $thema){
+
+		$pattern = '<a class="button" href="%s">%s</a>';
+		$link = sprintf($pattern, $thema->guid, $thema->post_title);
+		$links[] = $link;
+
+	}
+
+	return implode('<span> · </span>', $links);
+
+}
+
 if ( !function_exists( 'chld_thm_cfg_parent_css' ) ):
     function chld_thm_cfg_parent_css() {
         wp_enqueue_style( 'chld_thm_cfg_parent', trailingslashit( get_template_directory_uri() ) . 'style.css', array(  ) );

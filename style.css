@@ -11,7 +11,7 @@ Version: 1.2.0
 
 */
 
-@import url('https://fonts.googleapis.com/css?family=Cairo:300,400,700|Open+Sans:400,700');
+/*@import url('https://fonts.googleapis.com/css?family=Cairo:300,400,700|Open+Sans:400,700');*/
 
 @media only screen and (min-width: 400px) {
     .site-navigation-fixed.navigation-top {
@@ -163,6 +163,15 @@ span.thema-title a{
     z-index: 1;
     float: right;
 }
+
+.startseite-block-content .button {
+    background-color: #D95821;
+    color: #fff;
+    padding: 4px 6px;
+    line-height: 33px;
+    font-weight: bolder;
+}
+
 /* single-themenseite  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 .themenseite-gruppe .material-results{
