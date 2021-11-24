@@ -14,19 +14,29 @@ global $post;
     <div class="wrap">
         <div id="primary" class="content-area">
             <main id="main" class="site-main" role="main">
-                <div class="startseite-block-header">
-                    <p>Unsere Themenseiten</p>
-                    <div class="startseite-block-content">
-                        <?php
-                       echo rw_material_get_themenliste();
-                        ?>
-                    </div>
-                </div>
 
-                <div class="clear"></div>
 
 
 	            <?php
+
+	            $show_title = get_field( 'show_title' );
+
+                if($show_title):
+
+	                $startseite_title = get_field( 'startseite_title' );
+	                $startseite_freitext= get_field( 'startseite_freitext' );
+
+	                ?>
+                    <div class="startseite-block-header">
+                        <p><?php echo $startseite_title; ?></p>
+                    </div>
+                    <div class="startseite-block-content material-results">
+                        <div>
+		                <?php echo do_shortcode($startseite_freitext); ?>
+                        </div>
+                    </div>
+                <?php
+                endif;
 	            $show_aktuell = get_field( 'show_aktuell' );
 	            if ( $show_aktuell == 1 ) {
 		            ?>
@@ -82,7 +92,8 @@ global $post;
 			                unset( $my_query );
 		                }
                         $startseite_aktuell = get_field( 'startseite_themen');
-                        if ( $startseite_aktuell !== null && $startseite_aktuell != '' ) {
+
+                        if ( $startseite_aktuell !== null && !empty($startseite_aktuell)) {
                             $IDlistArr = array();
                             foreach ( $startseite_aktuell as $entry ) {
                                 $IDlistArr[] = $entry->ID;
@@ -134,41 +145,24 @@ global $post;
 	            ?>
 	            <?php
 	            $show_themenseiten = get_field( 'show_themenseiten' );
-	            if ( $show_themenseiten == 1 ) {
+                if ( $show_themenseiten  ) {
 		            ?>
                     <div class="startseite-block-header">
                         <P><?php
-	                        $show_themenseiten_titel = get_field( 'startseite_themenseiten_titel' );
-				            echo do_shortcode( $show_themenseiten_titel );
-				            ?></P>
-                        <div class="startseite-block-content  material-results">
-                            <div class="facetwp-template" data-name="startseite_aktuell">
-                            <?php
-                            $args = array(
-                            'posts_per_page' => 3,
-                            'post_type'              => array( 'themenseite' ),
-                            );
-                            $my_query = new WP_Query( $args );
-                            while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
-                            <div class="facet-treffer>">
-                                <div class="facet-treffer-content">
-                                    <div class="material-cover">
-                                        <img src="<?php echo catch_thema_image() ?>">
-                                    </div>
-                                    <p class="material-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
-                                    <p class="search-description">
-				                        <?php the_excerpt(); ?>
-                                    </p>
-                                </div><div class="clear"></div>
-                            </div>
+		                    $show_themenseiten_titel = get_field( 'startseite_themenseiten_titel' );
+		                    echo do_shortcode( $show_themenseiten_titel );
+		                    ?></P>
 
-	                        <?php endwhile;
-	                        wp_reset_postdata();
-	                        ?>
-                        </div>
+                        <div class="startseite-block-content">
+			                <?php
+			                echo rw_material_get_themenliste();
+			                ?>
                         </div>
                     </div>
+
                     <div class="clear"></div>
+
+
 		            <?php
 	            }
 	            ?>
@@ -228,7 +222,44 @@ global $post;
                 <div class="clear"></div>
 	            <?php
 	            }
-	            ?>
+
+
+                if(false):
+                ?>
+                <div class="startseite-block-header">
+                    <p><?php
+			            $show_themenseiten_titel = get_field( 'startseite_themenseiten_titel' );
+			            echo do_shortcode( $show_themenseiten_titel );
+			            ?></p>
+                    <div class="startseite-block-content  material-results">
+                        <div class="facetwp-template" data-name="startseite_aktuell">
+				            <?php
+				            $args = array(
+					            'posts_per_page' => 3,
+					            'post_type'              => array( 'themenseite' ),
+				            );
+				            $my_query = new WP_Query( $args );
+				            while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+                                <div class="facet-treffer>">
+                                    <div class="facet-treffer-content">
+                                        <div class="material-cover">
+                                            <img src="<?php echo catch_thema_image() ?>">
+                                        </div>
+                                        <p class="material-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+                                        <p class="search-description">
+								            <?php the_excerpt(); ?>
+                                        </p>
+                                    </div><div class="clear"></div>
+                                </div>
+
+				            <?php endwhile;
+				            wp_reset_postdata();
+				            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <?php endif;?>
 
             </main><!-- #main -->
         </div><!-- #primary -->
